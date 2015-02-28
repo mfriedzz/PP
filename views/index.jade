@@ -1,0 +1,148 @@
+extends layout
+
+//- block content
+//- 	h1 Hello Boulder!
+
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    |     
+    title Purple People
+    |     
+    link(rel='stylesheet', type='text/css', href='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css')
+    |     
+    link(href='https://fonts.googleapis.com/css?family=Limelight|Lobster+Two&effect=fire-animation|emboss', rel='stylesheet', type='text/css')
+    |     
+    link(rel='stylesheet', type='text/css', href='css/main.css')
+    |     
+    link(rel='stylesheet', type='text/css', href='css/reset.css')
+    |     
+    link(rel='stylesheet', type='text/css', href='css/style2b.css')
+    |     
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+  |   
+  body
+    // <html>
+    .container-fluid
+      // /* Navigation Bar */
+      // <nav class="navbar navbar-inverse" role="navigation">
+      nav.navbar.navbar-inverse.navbar-fluid-top.navbar-header(role='navigation')
+        .container-fluid
+          // <label id=projectname>Project Name</label>
+          form.navbar-form.navbar-left
+            .form-group
+              a.navbar-brand(href='#')
+                // <img alt="Brand" src="logo/purplepeople2.gif" alt="logo" class=" align-left custom" id="Logo">
+                img#Logo(alt='Brand', src='logo/purplepeople2.gif')
+                |                 
+                a.form-control(href='login2.html') Login
+                |                 
+                a.form-control(href='about.html') About
+                |                 
+                a.form-control(href='compatiblecouples.html') Compatible Couples
+                |                   
+                input.form-control(type='text', placeholder='Email')
+                |                   
+                input.form-control(type='text', placeholder='Password')
+                |                   
+                button.btn.btn-success(type='submit') Sign In
+      // <button type="button" onclick="alert('Hello world!')">Click Here to Create a Login!</button>
+      button#submitbutton(type='submit', value='Click Here to Create a Login!', name='createlogin', onclick="alert('Coming Soon !!!')") Click Here to Create a Login!
+      // </header>
+      aside
+        br
+        |     
+        h1 Here is the latest News!
+        |     
+        br
+        |     
+        br
+        |     
+        hr
+        |     
+        br
+        |     
+        p  Hello here is some stuff to say.
+        |     
+        p  Here is some more stuff.
+        |     
+        p
+          | Here is an article about how to setup a lot of different things.
+        p
+          | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed et esse dicta consequuntur eos quidem! Ex porro sit quas at soluta cupiditate nemo odio explicabo magni. Hic dicta aspernatur aliquam.
+        |       Also, How to paint your windows!
+        |       
+        br
+        |       
+        hr
+        |       
+        br
+        |       And How to prepare for Winter!
+        |     
+        p
+      |       
+      |         
+      #column1.column
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+        |          
+        #carousel
+          ul
+            figure
+              li
+                figcaption  Happy Couple # 1 having a great time today in New York City!!!
+                img(src='logo/artdeco2.jpg', alt='Couple 1')
+            |             
+            figure
+              li
+                figcaption  Happy Couple # 2 having a great time today in New London Town!!!
+                img(src='logo/artdeco3.jpg', alt='Couple 2')
+            |             
+            figure
+              li
+                figcaption  Happy Couple # 3 having a great time today in Paris, France!!!
+                img(src='logo/artdeco4.jpg', alt='Couple 3')
+          |       
+          script.
+            $(document).ready(function(){
+            // Set the interval to be 5 seconds
+            var i = setInterval(function(){
+            $("#carousel ul").animate({marginLeft:-480},1000,function(){
+            $(this).find("li:last").after($(this).find("li:first"));
+            $(this).css({marginLeft:0});
+            })
+            },5000);
+            });
+            //window.onload = init;
+        //
+          <h2>Couples Example 1</h2>
+          <img src="logo/artdeco2.jpg" class="align-center small"/>
+          <p> This is the paragraph for Column 1
+          Here it is again for Column 1.
+          </p>
+      //
+        <div class="column" id="column2">
+        <h2>Couples with Kids Example 2</h2>
+        <img src="logo/artdeco3.jpg" class="align-center small"/>
+        <p> This is the paragraph for Column 2
+        Here it is again for Column 2.
+        </p>
+        </div>
+        <div class="column" id="column3">
+        <h2>Married Couple Example 3</h2>
+        <img src="logo/artdeco4.jpg" class="align-center small"/>
+        <p> This is the paragraph for Column 3
+        Here it is again for Column 3.
+        </p>
+        </div>
+      footer
+        | Copyright @ 2014 MDF
+    // for container end
+    // </div>
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+    |     
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js')
+    |     
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.js')
+    |     
+    script(src='main.js')
