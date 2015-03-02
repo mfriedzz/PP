@@ -69,7 +69,7 @@ var personSchema = mongoose.Schema({
 												hasChildren: Boolean,
 												numberOfChildren: Number,
 												militaryService: Boolean,
-												militaryDetails: String,
+												militaryDetails: [],
 												allowCoriCheck: Boolean,
 												activities: [],
 									},
@@ -111,6 +111,6 @@ var personSchema = mongoose.Schema({
 
 }); //end of personSchema
 
-var Couple = mongoose.model('Couple', coupleSchema);
+var Person = mongoose.model('Person', personSchema);
 
 module.exports = Person;
