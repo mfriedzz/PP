@@ -10,7 +10,7 @@ Person.find({}, function(err, documents){
 
 
 		coupledWith:        {
-								coupleid: 1
+								coupleId: 1
 							},
 		
 		contact:
@@ -61,13 +61,23 @@ Person.find({}, function(err, documents){
 										  },
 									}, // addresses end
 
-					details: {			hasChildren:'true',
+					details: {			
+
+										hasChildren:true,
 										numberOfChildren: 1,
 										militaryService: 'false',
 										militaryDetails: "   ",
 										allowCoriCheck: 'true',
 										activities: []
 							 },
+
+				  	ifChild: {
+
+												isChild:false,
+												childLikes: [],
+												childParent1: null,
+												childParent2: null,
+							  },
 
 					pets: {				
 										pets: 'true',
@@ -92,7 +102,7 @@ var person2 = new Person({
 
 
 		coupledWith:        {
-								coupleid: 1
+								coupleId: 1
 							},
 		
 		contact:
@@ -142,13 +152,23 @@ var person2 = new Person({
 										  },
 									}, // addresses end
 
-					details: {			hasChildren:'true',
+					details: {			
+										
+										hasChildren:true,
 										numberOfChildren: 1,
 										militaryService: 'false',
 										militaryDetails: [],
 										allowCoriCheck: 'true',
 										activities: []
 							 },
+
+					ifChild: 	{
+
+												isChild:false,
+												childLikes: [],
+												childParent1: null,
+												childParent2: null,
+									},
 
 					pets: {				
 										pets: 'true',
@@ -171,7 +191,7 @@ var person3 = new Person({
 
 
 		coupledWith:        {
-								coupleid: 2
+								coupleId: 2
 							},
 		
 		contact:
@@ -221,13 +241,23 @@ var person3 = new Person({
 										  },
 									}, // addresses end
 
-					details: {			hasChildren:false,
+					details: {			
+										
+										hasChildren:false,
 										numberOfChildren: 0,
 										militaryService: 'false',
 										militaryDetails: [],
 										allowCoriCheck: 'true',
 										activities: []
 							 },
+
+					ifChild: 	{
+
+												isChild:false,
+												childLikes: [],
+												childParent1: null,
+												childParent2: null,
+									},
 
 					pets: {				
 										pets: false,
@@ -250,7 +280,7 @@ var person3 = new Person({
 
 
 		coupledWith:        {
-								coupleid: 2
+								coupleId: 2
 							},
 		
 		contact:
@@ -300,13 +330,23 @@ var person3 = new Person({
 										  },
 									}, // addresses end
 
-					details: {			hasChildren:false,
+					details: {			
+										
+										hasChildren:false,
 										numberOfChildren: 0,
 										militaryService: false,
 										militaryDetails: [],
 										allowCoriCheck: true,
 										activities: []
 							 },
+
+					ifChild: 	{
+
+												isChild:false,
+												childLikes: [],
+												childParent1: null,
+												childParent2: null,
+									},
 
 					pets: {				
 										pets: 'true',
@@ -329,7 +369,7 @@ var person5 = new Person({
 
 
 		coupledWith:        {
-								coupleid: 3
+								coupleId: 3
 							},
 		
 		contact:
@@ -379,13 +419,23 @@ var person5 = new Person({
 										  },
 									}, // addresses end
 
-					details: {			hasChildren: false,
+					details: {			
+										
+										hasChildren: false,
 										numberOfChildren: 0,
 										militaryService: false,
 										militaryDetails: [],
 										allowCoriCheck: true,
 										activities: []
 							 },
+
+					ifChild: 	{
+
+												isChild:false,
+												childLikes: [],
+												childParent1: null,
+												childParent2: null,
+									},
 
 					pets: {				
 										pets: false,
@@ -408,7 +458,7 @@ var person6 = new Person({
 
 
 		coupledWith:        {
-								coupleid: 3
+								coupleId: 3
 							},
 		
 		contact:
@@ -458,13 +508,23 @@ var person6 = new Person({
 										  },
 									}, // addresses end
 
-					details: {			hasChildren: false,
+					details: {			
+										
+										hasChildren: false,
 										numberOfChildren: 0,
 										militaryService: true,
 										militaryDetails: ["army", "PFC", "Iraq War 2003", "Gulf War", "Hospital Platoon"],
 										allowCoriCheck: true,
 										activities: ["bike", "jog"]
 							 },
+
+					ifChild: 	{
+
+												isChild:false,
+												childLikes: [],
+												childParent1: null,
+												childParent2: null,
+									},
 
 					pets: {				
 										pets: true,
@@ -482,6 +542,275 @@ var person6 = new Person({
 	}); // end of Person 1
 
 	person6.save();
+
+	var person7 = new Person({
+
+
+		coupledWith:        {
+								coupleId: 1
+							},
+		
+		contact:
+				 { 	
+					name: {				firstName: "Zachary",
+										middleName: "Luke",
+										lastName: "Friedman"
+							},
+
+					phones:{			homePhone: "508-693-0056",
+										mobilePhone: "508-728-6554",
+										workPhone: "508-555-1212"
+							},
+
+					sex:    {			sex: "male"
+						    },
+
+					age:    { 			birthDate: 05/27/2011,
+										age: 3
+							},
+
+					birthplace: { 		birthCity: "Boston",
+										birthState: "Massachusetts"
+								},
+
+					addresses: {	
+									home: {	
+												homeStreetAddress: "67 Monroe Ave",
+												homeMailingAddress: "P.O. Box 1296",
+												homeCity: "Oak Bluffs",
+												homeState: "Massachusetts",
+												homeZipCode: "02557",
+												homeEmail: null,
+												homeTwitter: null
+											},
+
+									work: {		workPlaceName: null,
+												workStreetAddress: null,
+												workMailingAddress: null,
+												workCity: null,
+												workState: null,
+												workZipCode: null,
+												workEmail: null,
+												workTwitter: null,
+												workJobPosition: null,
+												workJobDescription: null
+										  },
+									}, // addresses end
+
+					details: {			
+										
+										hasChildren:false,
+										numberOfChildren: 0,
+										militaryService: false,
+										militaryDetails: [],
+										allowCoriCheck: false,
+										activities: ["Hot Wheels", "Swimming", "Disney Channel", "Construction"]
+							 },
+
+					ifChild: 	{
+
+												isChild:true,
+												childLikes: ["Food", "Sledding", "Walking"],
+												childParent1: "Michael David Friedman",
+												childParent2: "Katherine Reardon Friedman",
+									},
+
+					pets: {				
+										pets: true,
+										petType: "dog",
+										petBreed: "Mutt",
+										petName:" Ruby"
+						   },
+
+					marriage: {				   
+										married: false,
+										civilUnion: false
+							  }
+				 } // end of contact
+
+	}); // end of Person 7 Child 1 CoupleId 1
+
+	person7.save();
+
+	var person8 = new Person({
+
+
+		coupledWith:        {
+								coupleId: 2
+							},
+		
+		contact:
+				 { 	
+					name: {				firstName: "Lynn",
+										middleName: "Laura",
+										lastName: "Little"
+							},
+
+					phones:{			homePhone: "508-693-1212",
+										mobilePhone: "508-728-1234",
+										workPhone: "508-111-1212"
+							},
+
+					sex:    {			sex: "female"
+						    },
+
+					age:    { 			birthDate: 03/27/1988,
+										age: 26
+							},
+
+					birthplace: { 		birthCity: "Swampscott",
+										birthState: "Massachusetts"
+								},
+
+					addresses: {	
+									home: {	
+												homeStreetAddress: "11 State Road",
+												homeMailingAddress: "P.O. Box 96",
+												homeCity: "Dover",
+												homeState: "Massachusetts",
+												homeZipCode: "02121",
+												homeEmail: null,
+												homeTwitter: null
+											},
+
+									work: {		workPlaceName: null,
+												workStreetAddress: null,
+												workMailingAddress: null,
+												workCity: null,
+												workState: null,
+												workZipCode: null,
+												workEmail: null,
+												workTwitter: null,
+												workJobPosition: null,
+												workJobDescription: null
+										  },
+									}, // addresses end
+
+					details: {			
+
+
+										hasChildren:false,
+										numberOfChildren: 0,
+										militaryService: false,
+										militaryDetails: [],
+										allowCoriCheck: false,
+										activities: ["Hot Wheels", "Swimming", "Disney Channel", "Construction"]
+							 },
+
+					ifChild: 	{
+
+												isChild:true,
+												childLikes: [],
+												childParent1: "Rich Bob Little",
+												childParent2: "Barbara Jane Smith",
+									},
+
+					pets: {				
+										pets: true,
+										petType: "cat",
+										petBreed: "stray",
+										petName:"Mittens"
+						   },
+
+					marriage: {				   
+										married: false,
+										civilUnion: false
+							  }
+				 } // end of contact
+
+	}); // end of Person 8
+
+	person8.save();
+
+	var person9 = new Person({
+
+
+		coupledWith:        {
+								coupleId: 2
+							},
+		
+		contact:
+				 { 	
+					name: {				firstName: "Jack",
+										middleName: "Lot",
+										lastName: "Little"
+							},
+
+					phones:{			homePhone: "508-693-222",
+										mobilePhone: "508-728-1234",
+										workPhone: "508-111-1212"
+							},
+
+					sex:    {			sex: "male"
+						    },
+
+					age:    { 			birthDate: 05/07/2011,
+										age: 3
+							},
+
+					birthplace: { 		birthCity: "Lynn",
+										birthState: "Massachusetts"
+								},
+
+					addresses: {	
+									home: {	
+												homeStreetAddress: "11 Oak Road",
+												homeMailingAddress: "P.O. Box 916",
+												homeCity: "Dover",
+												homeState: "Massachusetts",
+												homeZipCode: "02121",
+												homeEmail: null,
+												homeTwitter: null
+											},
+
+									work: {		workPlaceName: null,
+												workStreetAddress: null,
+												workMailingAddress: null,
+												workCity: null,
+												workState: null,
+												workZipCode: null,
+												workEmail: null,
+												workTwitter: null,
+												workJobPosition: null,
+												workJobDescription: null
+										  },
+									}, // addresses end
+
+					details: {			
+
+
+										hasChildren:false,
+										numberOfChildren: 0,
+										militaryService: false,
+										militaryDetails: [],
+										allowCoriCheck: false,
+										activities: ["Day Care", "Sucking Thumb"]
+							 },
+
+					ifChild: 	{
+
+												isChild:true,
+												childLikes: ["Color Blue", "Transformers", "Kickball", "Shiny Objects", "Running", "Screaming", "Swimming"],
+												childParent1: "Rich Bob Little",
+												childParent2: "Barbara Jane Smith",
+									},
+
+					pets: {				
+										pets: true,
+										petType: "dog",
+										petBreed: "St Bernard",
+										petName:"Stripe"
+						   },
+
+					marriage: {				   
+										married: false,
+										civilUnion: false
+							  }
+				 } // end of contact
+
+	}); // end of Person  child
+
+	person9.save();
 
 
 

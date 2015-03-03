@@ -7,7 +7,7 @@ var personSchema = mongoose.Schema({
 		
 
 			coupledWith:    		{
-										coupleId: String,
+										coupleId: Number
 									} ,			
 			contact: {	
 
@@ -66,6 +66,7 @@ var personSchema = mongoose.Schema({
 
 
 						details:   { 
+												
 												hasChildren: Boolean,
 												numberOfChildren: Number,
 												militaryService: Boolean,
@@ -73,6 +74,15 @@ var personSchema = mongoose.Schema({
 												allowCoriCheck: Boolean,
 												activities: [],
 									},
+
+						ifChild: 	{
+
+												isChild: Boolean,
+												childLikes: [],
+												childParent1: String,
+												childParent2: String,
+									},
+
 						
 						pets:  		{     
 

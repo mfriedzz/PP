@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var indexController = require('./controllers/index.js');
+var searchController = require('./controllers/searchcontroller.js');
 
 // Mongoose
 var mongoose = require('mongoose');
@@ -13,9 +14,15 @@ var app = express();
 app.set('view engine', 'jade');
 app.set('views', __dirname + '/views');
 app.use(express.static(__dirname + '/public'));
+
+// parse JSON data, which comes directly from angular
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
+// controllers
 app.get('/', indexController.index);
+
+app.get('/compatiblecouples', searchController.search);
 
 // api routes
 

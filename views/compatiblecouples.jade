@@ -1,0 +1,84 @@
+// compatible couple html conversion
+
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title Compatible Couples
+    link(rel='stylesheet', type='text/css', href='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css')
+    link(href='https://fonts.googleapis.com/css?family=Limelight|Lobster+Two&effect=fire-animation|emboss', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', type='text/css', href='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css')
+    link(href='https://fonts.googleapis.com/css?family=Limelight|Lobster+Two&effect=fire-animation|emboss', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', type='text/css', href='css/main.css')
+    // <link rel="stylesheet" type="text/css" href="css/reset.css">
+    link(rel='stylesheet', type='text/css', href='css/style2b.css')
+    link(rel='stylesheet', type='text/css', href='css/compatiblecouples.css')
+  body
+    .container-fluid
+      // /* Navigation Bar */
+      // <nav class="navbar navbar-inverse" role="navigation">
+      nav.navbar.navbar-inverse.navbar-fixed-top.navbar-header(role='navigation')
+        .container-fluid
+          // <label id=projectname>Project Name</label>
+          form.navbar-form.navbar-left
+            .form-group
+              a.navbar-brand(href='#')
+                // <img alt="Brand" src="logo/purplepeople2.gif" alt="logo" class=" align-left custom" id="Logo">
+                img#Logo(alt='Brand', src='logo/purplepeople2.gif')
+                a.form-control(href='login2.html') Login
+                a.form-control(href='about.html') About
+                a.form-control(href='compatiblecouples.html') Compatible Couples
+                input.form-control(type='text', placeholder='Email')
+                input.form-control(type='text', placeholder='Password')
+                button.btn.btn-success(type='submit') Sign In
+      // </div>  /* end row */
+      .row
+        .col-md-6.coupleprofile
+          aside
+            h2.profile Your Couple's Profile
+            h3.profilestatistics Profile Statistics:
+            h3  Your Couple Pictures: 
+        // /* End of div class coupleprofile */
+        .col-md-6.couplessearch
+          h2(style='color:#000000') Compatible Couples Search Criteria:
+          // Search Form
+          form.search
+            label
+              | Age Range Min Age: 
+              input#minage(type='number', name='minage', value='18', min='18', max='115')
+              br
+              |               Age Range Max Age: 
+              input#maxage(type='number', name='maxage', value='18', min='18', max='115')
+            br
+            |             Children:
+            input#childrenyes(type='radio', name='children', value='true')
+            |  Yes
+            input#childrenno(type='radio', name='children', value='false', checked='checked')
+            |  No
+            br
+            |             Pets:
+            input#petsyes(type='radio', name='pets', value='true')
+            |  Yes
+            input#petsno(type='radio', name='pets', value='false', checked='checked')
+            |  No
+            br
+            |             Served in Military:
+            input#militaryyes(type='radio', name='militaryservice', value='true')
+            |  Yes
+            input#militaryno(type='radio', name='militaryservice', value='false', checked='checked')
+            |  No
+            br
+            br
+            input#submitbutton(type='submit', name='submitform', value='Search')
+          h2(style='color:#000000')  Couple Search Results 
+          .couplesearchresults
+        // /* end of couplessearch */
+      // /* end of Row class */
+    // /* Container End */
+    footer
+      | Copyright @ 2015 MDF
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js')
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.js')
+    script(src='compatiblecouples.js')
+    script(src='main.js')
