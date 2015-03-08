@@ -1,32 +1,41 @@
-
+head
+    title Compatible Couples
+    link(rel='stylesheet', type='text/css', href='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css')
+    link(href='https://fonts.googleapis.com/css?family=Limelight|Lobster+Two&effect=fire-animation|emboss', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', type='text/css', href='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css')
+    link(href='https://fonts.googleapis.com/css?family=Limelight|Lobster+Two&effect=fire-animation|emboss', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', type='text/css', href='css/main.css')
+    link(rel='stylesheet', type='text/css', href='css/style2b.css')
+    link(rel='stylesheet', type='text/css', href='css/compatiblecouples.css')
+  body
 extends layout
 block content
     .container-fluid
-    
+     
       nav.navbar.navbar-inverse.navbar-fixed-top.navbar-header(role='navigation')
         .container-fluid
-          //- // <label id=projectname>Project Name</label>
           form.navbar-form.navbar-left
             .form-group
               a.navbar-brand(href='#')
+              
                 img#Logo(alt='Brand', src='logo/purplepeople2.gif')
                 a.form-control(href='login2.html') Login
-                a.form-control(href='/about.html') About
+                a.form-control(href='about.html') About
                 a.form-control(href='compatiblecouples.html') Compatible Couples
                 input.form-control(type='text', placeholder='Email')
                 input.form-control(type='text', placeholder='Password')
                 button.btn.btn-success(type='submit') Sign In
-      
+    
       .row
         .col-md-6.coupleprofile
           aside
             h2.profile Your Couple's Profile
             h3.profilestatistics Profile Statistics:
             h3  Your Couple Pictures: 
-      
+        
         .col-md-6.couplessearch
           h2(style='color:#000000') Compatible Couples Search Criteria:
-          //- // Search Form
+        
           form.search
             label
               | Age Range Min Age: 
@@ -60,4 +69,3 @@ block content
       
     footer
       | Copyright @ 2015 MDF
-    

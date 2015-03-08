@@ -22,7 +22,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 // controllers
 app.get('/', indexController.index);
 
-app.get('/compatiblecouples', searchController.search);
+app.get('/compatiblecouples', searchController.renderPage);
+app.post('/compatiblecouples/search', searchController.search);
 
 // api routes
 

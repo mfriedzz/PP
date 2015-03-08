@@ -1,37 +1,17 @@
 extends layout
 
 block content
-  h1 Hello Boulder!
-
-   html(lang='en')
-     head
-      |     
-      title Purple People
-      |     
-      link(rel='stylesheet', type='text/css', href='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css')
-      |     
-      link(href='https://fonts.googleapis.com/css?family=Limelight|Lobster+Two&effect=fire-animation|emboss', rel='stylesheet', type='text/css')
-      |     
-      link(rel='stylesheet', type='text/css', href='css/main.css')
-      |     
-      link(rel='stylesheet', type='text/css', href='css/reset.css')
-      |     
-      link(rel='stylesheet', type='text/css', href='css/style2b.css')
-      |     
-      meta(name='viewport', content='width=device-width, initial-scale=1')
-      |   
-      body
-    
+    //- // <html>
     .container-fluid
-      
-    
+      //- // /* Navigation Bar */
+      //- // <nav class="navbar navbar-inverse" role="navigation">
       nav.navbar.navbar-inverse.navbar-fluid-top.navbar-header(role='navigation')
-    .container-fluid
-
+        .container-fluid
+          //- // <label id=projectname>Project Name</label>
           form.navbar-form.navbar-left
             .form-group
               a.navbar-brand(href='#')
-
+                //- // <img alt="Brand" src="logo/purplepeople2.gif" alt="logo" class=" align-left custom" id="Logo">
                 img#Logo(alt='Brand', src='logo/purplepeople2.gif')
                 |                 
                 a.form-control(href='login2.html') Login
@@ -45,8 +25,9 @@ block content
                 input.form-control(type='text', placeholder='Password')
                 |                   
                 button.btn.btn-success(type='submit') Sign In
-
+      //- // <button type="button" onclick="alert('Hello world!')">Click Here to Create a Login!</button>
       button#submitbutton(type='submit', value='Click Here to Create a Login!', name='createlogin', onclick="alert('Coming Soon !!!')") Click Here to Create a Login!
+      //- // </header>
       aside
         br
         |     
@@ -111,8 +92,35 @@ block content
             },5000);
             });
             //window.onload = init;
-      
-        </div>
+      //-   //
+      //-     <h2>Couples Example 1</h2>
+      //-     <img src="logo/artdeco2.jpg" class="align-center small"/>
+      //-     <p> This is the paragraph for Column 1
+      //-     Here it is again for Column 1.
+      //-     </p>
+      //- //
+      //-   <div class="column" id="column2">
+      //-   <h2>Couples with Kids Example 2</h2>
+      //-   <img src="logo/artdeco3.jpg" class="align-center small"/>
+      //-   <p> This is the paragraph for Column 2
+      //-   Here it is again for Column 2.
+      //-   </p>
+      //-   </div>
+      //-   <div class="column" id="column3">
+      //-   <h2>Married Couple Example 3</h2>
+      //-   <img src="logo/artdeco4.jpg" class="align-center small"/>
+      //-   <p> This is the paragraph for Column 3
+      //-   Here it is again for Column 3.
+      //-   </p>
+      //-   </div>
       footer
         | Copyright @ 2014 MDF
-    
+    //- // for container end
+    //- //- // </div>
+    //- script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+    //- |     
+    //- script(src='http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js')
+    //- |     
+    //- script(src='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.js')
+    //- |     
+    //- script(src='main.js')
