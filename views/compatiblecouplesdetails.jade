@@ -1,0 +1,32 @@
+extends layout
+
+block content
+	h1 Hello Mexico!
+ 
+.row
+	.col-md-6.col-md-6
+	.col-md-6.col-md-6
+   
+	.panel.panel-default
+		.panel-heading Panel Heading
+		.panel-body
+
+#coupledetails
+	h1 Vital Statistics	
+p.
+	| How Long Together?
+
+| Where are each of you from?
+
+| How long in the Area?
+
+| Career for Partner # 1
+
+| Career for Partner # 2		
+h2 Children(If Any) details
+ul#children-list
+for child in children-list
+	li.Name Name
+	li.Age Age
+	li.Sex Sex
+	li.other details

@@ -1,14 +1,25 @@
 // Client Side
+
+
+
+  
+console.log("Got here");
+
+
+// Initialize the event listeners
 $(document).on('ready', function(){
 
 
-  var formMinAge = $('').val();
-  var formMaxAge = $('contact.details.hasChildren').val();
-  var formChildren = $('contact.details.hasChildren').val();
-  var formPets = $('contact.details.pets').val();
-  var formMilitary = $('contact.details.military').val();
+  var formMinAge = $('#minage').val();
+  var formMaxAge = $('#maxage').val();
+  var formChildrenYes = $('#childrenyes').val();
+  var formChildrenNo = $('#childrenno').val();
+  var formPetsYes = $('#petsyes').val();
+  var formPetsNo = $('#petsno').val();
+  var formMilitaryYes = $('#militaryyes').val();
+  var formMilitaryNo = $('#militaryno').val();
 
-   console.log("form items", formMinAge,formMaxAge,formChildren, formPets, formMilitary);
+   console.log("form items", formMinAge,formMaxAge,formChildrenYes,formChildrenNo, formPetsYes, formPetsNo, formMilitaryYes, formMilitaryNo);
 
   var searchCriteria = {
       minAge: 18,
@@ -18,11 +29,16 @@ $(document).on('ready', function(){
       military: false
   };
 
-$('#submitbutton').on('click', function(){
+
+
+
+$('#submitbutton').on('click', function(e){
     //e.preventDefault();
     
     $.post('/compatiblecouples/search', searchCriteria, function(dataFromServer, status, jXHR){
-       console.log("form items", formMinAge,formMaxAge,formChildren, formPets, formMilitary);
+      // console.log("form items", formMinAge,formMaxAge,formChildren, formPets, formMilitary);
+      console.log("form items", formMinAge,formMaxAge,formChildrenYes,formChildrenNo, formPetsYes, formPetsNo, formMilitaryYes, formMilitaryNo);
+
             return;
       });
 
