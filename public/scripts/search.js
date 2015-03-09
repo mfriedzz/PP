@@ -10,6 +10,9 @@ console.log("Got here");
 $(document).on('ready', function(){
 
 
+$('#submitbutton').on('click', function(e){
+    e.preventDefault();
+    
   var formMinAge = $('#minage').val();
   var formMaxAge = $('#maxage').val();
   var formChildrenYes = $('#childrenyes').val();
@@ -19,25 +22,54 @@ $(document).on('ready', function(){
   var formMilitaryYes = $('#militaryyes').val();
   var formMilitaryNo = $('#militaryno').val();
 
-   console.log("form items", formMinAge,formMaxAge,formChildrenYes,formChildrenNo, formPetsYes, formPetsNo, formMilitaryYes, formMilitaryNo);
+
+ 
+    var formChildren = function(){
+        $("input:radio[name=children]").click(function() {
+            var value = $(this).val();
+            console.log("Value of Children from input click", value);
+      })
+    };
+
+    var formPets = function() {
+         $("input:radio[name=pets]").click(function() {
+            var value = $(this).val();
+            console.log("Value of Pets from input click", value);
+      })
+    };
+
+   var formMilitary =  function(){
+        $("input:radio[name=militaryservice]").click(function() {
+            var value = $(this).val();
+            console.log("Value of Military from input click", value);
+      })
+    };
+
+  
+
+  
+
+  // var searchCriteria = {
+  //     minAge: 18,
+  //     maxAge: 70,
+  //     children: true,
+  //     pets: true,
+  //     military: false
+  // };
 
   var searchCriteria = {
-      minAge: 18,
-      maxAge: 70,
-      children: true,
-      pets: true,
-      military: false
+      minAge: formMinAge,
+      maxAge: formMaxAge,
+      children: formChildren,
+      pets: formPets,
+      military: formMilitary
   };
 
+  console.log("form items not post", formMinAge,formMaxAge,formChildrenYes,formChildrenNo, formPetsYes, formPetsNo, formMilitaryYes, formMilitaryNo);
 
-
-
-$('#submitbutton').on('click', function(e){
-    //e.preventDefault();
-    
     $.post('/compatiblecouples/search', searchCriteria, function(dataFromServer, status, jXHR){
-      // console.log("form items", formMinAge,formMaxAge,formChildren, formPets, formMilitary);
-      console.log("form items", formMinAge,formMaxAge,formChildrenYes,formChildrenNo, formPetsYes, formPetsNo, formMilitaryYes, formMilitaryNo);
+     
+      console.log("form items from Post", formMinAge,formMaxAge,formChildren, formPets, formMilitary);
 
             return;
       });

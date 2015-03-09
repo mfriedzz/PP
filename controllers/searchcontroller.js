@@ -14,7 +14,7 @@ var searchController = {
 			// was trying to pass dynamic variable to contact.details.hasChildren: searchCriteria.children
 
 			// var formMinAge = $('#minage').val();
-  	// 		var formMaxAge = $('#maxage').val();
+  	//	var formMaxAge = $('#maxage').val();
   	// 		var formChildrenYes = $('#childrenyes').val();
   	// 		var formChildrenNo = $('#childrenno').val();
   	// 		var formPetsYes = $('#petsyes').val();
@@ -22,13 +22,15 @@ var searchController = {
   	// 		var formMilitaryYes = $('#militaryyes').val();
   	// 		var formMilitaryNo = $('#militaryno').val();
 			
-			Person.find({ "contact.details.hasChildren": true }, { "contact.details.militaryService": false },
+			Person.find({"contact.age.minage": { "$gt" : 17, "$lt" : 65 }}, 
+				{"contact.details.hasChildren": true },{ "contact.details.militaryService": false },
 							{ "contact.details.pets": true },	
 			 					function(err, person){
 									if (err) throw err;
-									//console.log("Person.find", this);
+									console.log("Person.find", person);
 								} //end of function
-					
+								//console.log("Search Find", this);
+
 						); // end of Person.find
 
 				
