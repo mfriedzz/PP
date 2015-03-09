@@ -1,0 +1,15 @@
+extends layout
+
+block content
+	.container
+		h1 Search Results
+		//- p: a(href="/") 
+		ul#searchresult.list-unstyled
+			
+				li name #{dataFromServer.firstname}
+				li Age: #{dataFromServer.age}
+				li Have Children: #{dataFromServer.hasChildren}
+				li Have Pets: #{dataFromServer.haspets}
+				li Served in Military: #{dataFromServer.militaryService}		
+						a.btn.btn-primary.view(href="/#{job._id}") details
+						

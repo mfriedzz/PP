@@ -39,10 +39,9 @@ html(lang='en')
 		|     
 		link(rel='stylesheet', type='text/css', href='css/main.css')
 		|     
-		link(rel='stylesheet', type='text/css', href='css/reset.css')
+		link(rel='stylesheet', type='text/css', href='css/footer.css')
 		|     
 		link(rel='stylesheet', type='text/css', href='css/style2b.css')
-		|     
 		meta(name='viewport', content='width=device-width, initial-scale=1')
 		|   
 		body
@@ -71,7 +70,13 @@ html(lang='en')
 
 	body
 		block content
-		
+		block foot
+			div.site-footer
+			.footer
+				.container-fluid
+					p.muted.credit Copyright MDF 2015
+	
+
 
 		script(src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js")
 		script(src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js")

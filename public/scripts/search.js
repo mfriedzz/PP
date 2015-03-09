@@ -23,39 +23,23 @@ $('#submitbutton').on('click', function(e){
   var formMilitaryNo = $('#militaryno').val();
 
 
- 
-    var formChildren = function(){
-        $("input:radio[name=children]").click(function() {
-            var value = $(this).val();
-            console.log("Value of Children from input click", value);
-      })
-    };
+       
+    // var formChildren = function(){
+    //     $("input:radio[name=children]").click(function() {
+    //         var value = $(this).val();
+    //         console.log("Value of Children from input click", value);
+    //   })
+    // };
+   // $('input:radio[name=sex]:checked').val();
 
-    var formPets = function() {
-         $("input:radio[name=pets]").click(function() {
-            var value = $(this).val();
-            console.log("Value of Pets from input click", value);
-      })
-    };
+    var formChildren = $("input:radio[name=children]:checked").val();
 
-   var formMilitary =  function(){
-        $("input:radio[name=militaryservice]").click(function() {
-            var value = $(this).val();
-            console.log("Value of Military from input click", value);
-      })
-    };
+    var formPets = $("input:radio[name=pets]:checked").val();
+
+    var formMilitary = $("input:radio[name=militaryservice]:checked").val();
+
 
   
-
-  
-
-  // var searchCriteria = {
-  //     minAge: 18,
-  //     maxAge: 70,
-  //     children: true,
-  //     pets: true,
-  //     military: false
-  // };
 
   var searchCriteria = {
       minAge: formMinAge,
@@ -66,12 +50,23 @@ $('#submitbutton').on('click', function(e){
   };
 
   console.log("form items not post", formMinAge,formMaxAge,formChildrenYes,formChildrenNo, formPetsYes, formPetsNo, formMilitaryYes, formMilitaryNo);
+  console.log("form items Search Criteria before post ", searchCriteria.minAge, searchCriteria.maxAge,
+                searchCriteria.children, searchCriteria.pets, searchCriteria.military);
 
-    $.post('/compatiblecouples/search', searchCriteria, function(dataFromServer, status, jXHR){
+    $.post('/compatiblecouples/search', searchCriteria, 
+            function(dataFromServer, status, jXHR){
      
-      console.log("form items from Post", formMinAge,formMaxAge,formChildren, formPets, formMilitary);
+      // Jquery for Post
 
-            return;
+      console.log("form items from Post", {criteria : searchCriteria}, dataFromServer);
+
+
+          // $('#searchresult').append( '<li>' + dataFromServer.firstname + dataFromServer.lastname + 
+          //   + dataFromServer.age + dataFromServer.hasChildren + dataFromServer.haspets
+          //   + dataFromServer.militaryService + '<li>');
+
+          $('#searchresult').append( '<li>' + dataFromServer.firstname + dataFromServer.lastname + '<li>');
+            //return;
       });
 
 }); // end Search Submit function

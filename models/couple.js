@@ -99,23 +99,7 @@ var personSchema = mongoose.Schema({
 
 					
 
-		// child 1
 		
-		// childcoupleid:Number,
-		// childFirstName: String,
-		// childMiddleName: String,
-		// childLastName: String,
-		// childBirthDate: String,
-		// childAge: Number,
-		// childSexkey: boolean,
-		// childActivities: [],
-		// childLikes: [],
-		// childParent1: String,
-		// childParent2: String,
-		// childPets: Boolean,
-		// childPetType: String,
-		// childPetBreed: String,
-		// childPetName: String,
 
 				} // contact end
 

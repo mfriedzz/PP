@@ -121,16 +121,16 @@ h1 { font-family: 'Limelight', cursive, serif;
   }
 
 
-footer {
+/*footer {
 
   position:absolute;
    bottom:0;
    width:100%;
-   height:60px;   /* Height of the footer */
+   height:60px;    Height of the footer 
    background:#6cf;
 
    clear:both;
-  border: 5px solid black;
+  border: 5px solid black;*/
 
  /* previous values */ 
   /*width: 100%;

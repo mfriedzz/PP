@@ -21,15 +21,22 @@ var searchController = {
   	// 		var formPetsNo = $('#petsno').val();
   	// 		var formMilitaryYes = $('#militaryyes').val();
   	// 		var formMilitaryNo = $('#militaryno').val();
-			
-			Person.find({"contact.age.minage": { "$gt" : 17, "$lt" : 65 }}, 
-				{"contact.details.hasChildren": true },{ "contact.details.militaryService": false },
-							{ "contact.details.pets": true },	
-			 					function(err, person){
-									if (err) throw err;
-									console.log("Person.find", person);
+
+		console.log("Search Controller got here ", req);			
+	//	console.log("Find feature on search controller", Person.contact.details.hasChildren, Person.contact.details.militaryService,
+	//			Person.contact.details.pets, Person.contact.age.age);
+
+				Person.find({'contact.age.age' : { '$gt' : 17 }},
+			//Person.find({"contact.details.hasChildren": true },
+			//				{"contact.details.pets": true}, {"contact.details.militaryService": false},
+			//				{"contact.age.age" : { '$gt' : 17, '$lt' : 65 }},	
+			 			function(err, results){
+								if (err) throw err;
+									console.log("Person.find results ", results);
+									//console.log("In Post Person Age", results);
+									res.send(results);
+									
 								} //end of function
-								//console.log("Search Find", this);
 
 						); // end of Person.find
 
