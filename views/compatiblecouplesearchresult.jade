@@ -5,8 +5,8 @@ block content
 		h1 Search Results
 		//- p: a(href="/") 
 		ul#searchresult.list-unstyled
-			
-				li name #{dataFromServer.firstname}
+			for dataFromServer in Person
+				li name #{dataFromServer.firstName}
 				li Age: #{dataFromServer.age}
 				li Have Children: #{dataFromServer.hasChildren}
 				li Have Pets: #{dataFromServer.haspets}

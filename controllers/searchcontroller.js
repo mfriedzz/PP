@@ -1,4 +1,5 @@
 var Person = require('../models/couple.js');
+var __ = require("underscore");
 
 var searchController = {
 	
@@ -17,7 +18,8 @@ var searchController = {
 			Person.find(   {"contact.details.hasChildren": searchCriteria.children,
 						 	"contact.pets.pets": searchCriteria.pets,
 						 	"contact.details.militaryService": searchCriteria.military, 
-							"contact.age.age" : { '$gte' : searchCriteria.minAge , '$lte' : searchCriteria.maxAge }},
+							"contact.age.age" : { '$gte' : searchCriteria.minAge , '$lte' : searchCriteria.maxAge }
+							},
 
 		
 			 			function(err, results){
@@ -31,39 +33,91 @@ var searchController = {
 									 		var matchedOnPets = "";
 									 		var matchedOnMilitary = "";
 									 		var matchedOnAge = "";
+									 		var flag = false;
 
+									 			console.log("Have Children Test", (person.contact.details.hasChildren).toString(), (searchCriteria.children));
 
-									 		if ( "person.contact.details.hasChildren" == searchCriteria.children ){
+									 		if ( (((person.contact.details.hasChildren).toString()) == searchCriteria.children ) &&
+									 				(((person.contact.details.hasChildren).toString()) && searchCriteria.children == "true"))		
+									 			{
 									 				 matchedOnChildren = " Have Children ";
+									 				 console.log("Have Children!!!!!!!!!!");
+									 				 flag = true;
 									 				
-									 			} // end of IF match on have Children
+									 			} // end of IF match on both having Children being true
+									 		else if ( (((person.contact.details.hasChildren).toString()) == searchCriteria.children ) &&
+									 				(((person.contact.details.hasChildren).toString()) && searchCriteria.children == "false") )
+									 			{
+									 				 matchedOnChildren = " Have No Children ";
+									 				 console.log("Have NO Children!!!!!!!!!!");
+									 				 flag = true;
+									 			} //// end of IF match on both NOT having Children being true
 
-									 		if ( "person.contact.pets.pets" === searchCriteria.pets){
+									 		if ( (((person.contact.pets.pets).toString()) == searchCriteria.pets) &&
+									 			(((person.contact.pets.pets).toString()) && searchCriteria.pets == "true") )
+									 			{
 									 				 matchedOnPets = " Have Pets ";
 									 				console.log("Have Pets");
+									 				flag = true;
 									 			}
+									 		else if ( (((person.contact.pets.pets).toString()) == searchCriteria.pets ) &&
+									 				(((person.contact.pets.pets).toString()) && searchCriteria.pets == "false") )
+									 			{
+									 				 matchedOnPets = " Have No Pets ";
+									 				 console.log("Have NO Pets!!!!!!!!!!");
+									 				 flag = true;
+									 			} //// end of IF match on both NOT having pets being true
 
-									 		if ( "contact.details.militaryService" == searchCriteria.military){
+									 		if ( (((person.contact.details.militaryService).toString()) == searchCriteria.military) &&
+									 			(((person.contact.details.militaryService).toString()) && searchCriteria.military == "true") )
+
+									 			{
 									 				 matchedOnMilitary = " Served in the Military ";
+									 				 	console.log("Served in the Military");
+									 				 	flag = true;
+									 			}
+									 		else if ( (((person.contact.details.militaryService).toString()) == searchCriteria.military ) &&
+									 				(((person.contact.details.militaryService).toString()) && searchCriteria.military == "false") )
+									 			{
+									 				 matchedOnMilitary = " Did NOT serve in The Military";
+									 				 console.log("Have NO Military Service!!!!!!!!!");
+									 				 flag = true;
+									 			} //// end of IF match on both NOT having military service being true
+
+									 		if ( 	(person.contact.age.age >= searchCriteria.minAge) && 
+									 				(person.contact.age.age <= searchCriteria.maxAge))
+									 			{
+									 				 matchedOnAge =  "contact.age.age" + " Age Matched Range between " 
+									 				 	+ searchCriteria.minAge + " and " + searchCriteria.maxAge;
+									 				 flag = true;
 									 			}
 
-									 		if ( ("contact.age.age" >= searchCriteria.minAge) && ("contact.age.age" <= searchCriteria.maxAge)){
-									 				 matchedOnAge =  "contact.age.age" + " Age Matched Range between " + searchCriteria.minAge + " and " + searchCriteria.maxAge;
-									 			}
+									 		if (flag = true) {
 
-									 		coupleResults.push({firstname: person.firstName,
-									 							lastName: person.lastName,
-									 		 					coupleId: person.coupleId,
+
+									 		coupleResults.push({firstname: person.contact.name.firstName,
+									 							lastName: person.contact.name.lastName,
+									 		 					coupleId: person.coupledWith.coupleId,
 									 							matchedOn : {
 									 											matchChild: matchedOnChildren,
 									 							 				matchPets: matchedOnPets,
 									 							 				matchMilitary: matchedOnMilitary, 
 									 							 				matchAge:       matchedOnAge
 									 							 			}
-									 							 });	
+									 							 }); // end of coupleResults.push	
+									 						} // end of if flag check
 									 		
 									 }); // end coupleResultsTemp map function
-									 console.log("Couple Results ", coupleResults);
+
+									console.log("Couple Results ", coupleResults);
+									var tempCoupleResults =  __.filter(coupleResults, function(couple){
+											if (couple = this.coupleId)
+												console.log(" temp couple results ", couple)
+													return couple;
+
+									}); // end of tempCoupleResults
+
+										console.log(" Couples linked by ID ", tempCoupleResults);
 									res.send(results);
 									//res.render('compatiblecouplesearchresult', results); to call template
 									
@@ -77,8 +131,23 @@ var searchController = {
    
 	
 
-			} // end of search function
+			}, // end of search function
+
+	viewCoupleDetails: function(req,res)
+		{
+
+			// Person.find({}, function(err, coupleFromDB){
+
+			// 	res.render('compatiblecouplesearchresult', {
+			// 	Person: couplefromDB
+			
+			// 	}; // end of res.render
+			// }); // end of Person.find
+			res.render('compatiblecouplesearchresult');
+
+		} // end of viewCoupleDetails
 	
 	};  // end of searchController
+	
 
 module.exports = searchController;

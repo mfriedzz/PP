@@ -66,21 +66,25 @@ $('#submitbutton').on('click', function(e){
           //   + dataFromServer.age + dataFromServer.hasChildren + dataFromServer.haspets
           //   + dataFromServer.militaryService + '<li>');
          var result = dataFromServer.map(function (result) { 
-                    return  $('.couplesearchresults').append( '<a class="jMyLink">' + '<li>' + result.contact.name.firstName + result.contact.name.lastName + 
+                    return  $('.couplesearchresults').append( "<a href='/compatiblecouplesearchresult' class='searchresults' class='expand'>" + '<li>' + result.contact.name.firstName + result.contact.name.lastName + 
                       result.contact.details.hasChildren + result.contact.pets.pets  + result.contact.details.militaryService +
-                      result.contact.age.age + '<li>' + '</a>');
+                      result.contact.age.age + result.coupledWith.coupleId + '<li>' + '</a>');
                                         
                                           });  
+
+
+
+
   
 
-          //$('.couplesearchresults').append( '<li>' + result.contact.name.firstName + result.contact.name.lastName + '<li>');
+          
             //return;
       });
 
 }); // end Search Submit function
 
 
-
+// Handle Details views 
 
 
 

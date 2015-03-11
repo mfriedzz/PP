@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var indexController = require('./controllers/index.js');
 var searchController = require('./controllers/searchcontroller.js');
+var __ = require("underscore");
 
 // Mongoose
 var mongoose = require('mongoose');
@@ -24,6 +25,7 @@ app.get('/', indexController.index);
 
 app.get('/compatiblecouples', searchController.renderPage);
 app.post('/compatiblecouples/search', searchController.search);
+app.get('/compatiblecouplesearchresult', searchController.viewCoupleDetails);
 
 // api routes
 
