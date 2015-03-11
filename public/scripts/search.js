@@ -49,23 +49,31 @@ $('#submitbutton').on('click', function(e){
       military: formMilitary
   };
 
-  console.log("form items not post", formMinAge,formMaxAge,formChildrenYes,formChildrenNo, formPetsYes, formPetsNo, formMilitaryYes, formMilitaryNo);
-  console.log("form items Search Criteria before post ", searchCriteria.minAge, searchCriteria.maxAge,
-                searchCriteria.children, searchCriteria.pets, searchCriteria.military);
+  //console.log("form items not post", formMinAge,formMaxAge,formChildrenYes,formChildrenNo, formPetsYes, formPetsNo, formMilitaryYes, formMilitaryNo);
+  //console.log("form items Search Criteria before post ", searchCriteria.minAge, searchCriteria.maxAge,
+  //              searchCriteria.children, searchCriteria.pets, searchCriteria.military);
 
     $.post('/compatiblecouples/search', searchCriteria, 
             function(dataFromServer, status, jXHR){
      
       // Jquery for Post
 
-      console.log("form items from Post", {criteria : searchCriteria}, dataFromServer);
+      console.log("form items from Post", searchCriteria, dataFromServer);
 
+      console.log('Post data', dataFromServer.firstName);
 
           // $('#searchresult').append( '<li>' + dataFromServer.firstname + dataFromServer.lastname + 
           //   + dataFromServer.age + dataFromServer.hasChildren + dataFromServer.haspets
           //   + dataFromServer.militaryService + '<li>');
+         var result = dataFromServer.map(function (result) { 
+                    return  $('.couplesearchresults').append( '<a class="jMyLink">' + '<li>' + result.contact.name.firstName + result.contact.name.lastName + 
+                      result.contact.details.hasChildren + result.contact.pets.pets  + result.contact.details.militaryService +
+                      result.contact.age.age + '<li>' + '</a>');
+                                        
+                                          });  
+  
 
-          $('#searchresult').append( '<li>' + dataFromServer.firstname + dataFromServer.lastname + '<li>');
+          //$('.couplesearchresults').append( '<li>' + result.contact.name.firstName + result.contact.name.lastName + '<li>');
             //return;
       });
 

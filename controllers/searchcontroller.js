@@ -7,36 +7,69 @@ var searchController = {
 	},
 
 	search: function(req, res) {
-			var results = [];
+			var coupleResults = [];
 			
-			//console.log("Search CRITERIA!", searchCriteria);
+			var searchCriteria = req.body;
+			console.log("Search CRITERIA!", searchCriteria);
 
-			// was trying to pass dynamic variable to contact.details.hasChildren: searchCriteria.children
 
-			// var formMinAge = $('#minage').val();
-  	//	var formMaxAge = $('#maxage').val();
-  	// 		var formChildrenYes = $('#childrenyes').val();
-  	// 		var formChildrenNo = $('#childrenno').val();
-  	// 		var formPetsYes = $('#petsyes').val();
-  	// 		var formPetsNo = $('#petsno').val();
-  	// 		var formMilitaryYes = $('#militaryyes').val();
-  	// 		var formMilitaryNo = $('#militaryno').val();
+				//Person.find({'contact.age.age' : { '$gt' : 17 }},
+			Person.find(   {"contact.details.hasChildren": searchCriteria.children,
+						 	"contact.pets.pets": searchCriteria.pets,
+						 	"contact.details.militaryService": searchCriteria.military, 
+							"contact.age.age" : { '$gte' : searchCriteria.minAge , '$lte' : searchCriteria.maxAge }},
 
-		console.log("Search Controller got here ", req);			
-	//	console.log("Find feature on search controller", Person.contact.details.hasChildren, Person.contact.details.militaryService,
-	//			Person.contact.details.pets, Person.contact.age.age);
-
-				Person.find({'contact.age.age' : { '$gt' : 17 }},
-			//Person.find({"contact.details.hasChildren": true },
-			//				{"contact.details.pets": true}, {"contact.details.militaryService": false},
-			//				{"contact.age.age" : { '$gt' : 17, '$lt' : 65 }},	
+		
 			 			function(err, results){
-								if (err) throw err;
+								if (err) {
+									throw err;
+								} else { 
 									console.log("Person.find results ", results);
-									//console.log("In Post Person Age", results);
-									res.send(results);
 									
-								} //end of function
+									 var coupleResultsTemp = results.map(function (person) { 
+									 		var matchedOnChildren = "";
+									 		var matchedOnPets = "";
+									 		var matchedOnMilitary = "";
+									 		var matchedOnAge = "";
+
+
+									 		if ( "person.contact.details.hasChildren" == searchCriteria.children ){
+									 				 matchedOnChildren = " Have Children ";
+									 				
+									 			} // end of IF match on have Children
+
+									 		if ( "person.contact.pets.pets" === searchCriteria.pets){
+									 				 matchedOnPets = " Have Pets ";
+									 				console.log("Have Pets");
+									 			}
+
+									 		if ( "contact.details.militaryService" == searchCriteria.military){
+									 				 matchedOnMilitary = " Served in the Military ";
+									 			}
+
+									 		if ( ("contact.age.age" >= searchCriteria.minAge) && ("contact.age.age" <= searchCriteria.maxAge)){
+									 				 matchedOnAge =  "contact.age.age" + " Age Matched Range between " + searchCriteria.minAge + " and " + searchCriteria.maxAge;
+									 			}
+
+									 		coupleResults.push({firstname: person.firstName,
+									 							lastName: person.lastName,
+									 		 					coupleId: person.coupleId,
+									 							matchedOn : {
+									 											matchChild: matchedOnChildren,
+									 							 				matchPets: matchedOnPets,
+									 							 				matchMilitary: matchedOnMilitary, 
+									 							 				matchAge:       matchedOnAge
+									 							 			}
+									 							 });	
+									 		
+									 }); // end coupleResultsTemp map function
+									 console.log("Couple Results ", coupleResults);
+									res.send(results);
+									//res.render('compatiblecouplesearchresult', results); to call template
+									
+								} // end of if else 
+								
+							} //end of function
 
 						); // end of Person.find
 
