@@ -2,10 +2,6 @@
 
 
 
-  
-console.log("Got here");
-
-
 // Initialize the event listeners
 $(document).on('ready', function(){
 
@@ -24,13 +20,7 @@ $('#submitbutton').on('click', function(e){
 
 
        
-    // var formChildren = function(){
-    //     $("input:radio[name=children]").click(function() {
-    //         var value = $(this).val();
-    //         console.log("Value of Children from input click", value);
-    //   })
-    // };
-   // $('input:radio[name=sex]:checked').val();
+    
 
     var formChildren = $("input:radio[name=children]:checked").val();
 
@@ -65,21 +55,27 @@ $('#submitbutton').on('click', function(e){
           // $('#searchresult').append( '<li>' + dataFromServer.firstname + dataFromServer.lastname + 
           //   + dataFromServer.age + dataFromServer.hasChildren + dataFromServer.haspets
           //   + dataFromServer.militaryService + '<li>');
-         var result = dataFromServer.map(function (result) { 
+         $(".couplesearchresults").empty();
+          
+         var result = dataFromServer.map(function (result)
+                 { 
+
                     return  $('.couplesearchresults').append( "<a href='/compatiblecouplesearchresult' class='searchresults' class='expand'>" + '<li>' + result.contact.name.firstName + result.contact.name.lastName + 
                       result.contact.details.hasChildren + result.contact.pets.pets  + result.contact.details.militaryService +
                       result.contact.age.age + result.coupledWith.coupleId + '<li>' + '</a>');
+
                                         
-                                          });  
+                  }); // end of result  
 
 
-
-
-  
-
-          
             //return;
-      });
+            // $( '.couplesearchresults' ).each(function(){
+            //      this.reset();
+            //  });
+      }); // end of post for search
+
+    
+    
 
 }); // end Search Submit function
 

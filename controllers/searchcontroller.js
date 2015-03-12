@@ -99,9 +99,9 @@ var searchController = {
 									 							lastName: person.contact.name.lastName,
 									 		 					coupleId: person.coupledWith.coupleId,
 									 							matchedOn : {
-									 											matchChild: matchedOnChildren,
-									 							 				matchPets: matchedOnPets,
-									 							 				matchMilitary: matchedOnMilitary, 
+									 											matchChild: 	matchedOnChildren,
+									 							 				matchPets: 		matchedOnPets,
+									 							 				matchMilitary: 	matchedOnMilitary, 
 									 							 				matchAge:       matchedOnAge
 									 							 			}
 									 							 }); // end of coupleResults.push	
@@ -110,17 +110,30 @@ var searchController = {
 									 }); // end coupleResultsTemp map function
 
 									console.log("Couple Results ", coupleResults);
-									var tempCoupleResults =  __.filter(coupleResults, function(couple){
-											if (couple = this.coupleId)
-												console.log(" temp couple results ", couple)
-													return couple;
+									
+										
+										// var tempCoupleResults = __.filter(coupleResults, function (element, index) {
+   							// 				 // tests if the element has a duplicate in the rest of the array
+    						// 				for(index += 1; index < coupleResults.length; index += 1) {
+        		// 								if (__.isEqual(element, coupleResults[index])) 
+        		// 								{
+          //  											 return false;
+       			// 								}
+    						// 				}
+    						// 				return true;
+										// });
 
-									}); // end of tempCoupleResults
+										var tempCoupleResults = __.uniq(coupleResults, function(i){  
+
+   													return [i];   //'a','b'
+
+											});
+										
 
 										console.log(" Couples linked by ID ", tempCoupleResults);
-									res.send(results);
+										res.send(results);
 									//res.render('compatiblecouplesearchresult', results); to call template
-									
+								
 								} // end of if else 
 								
 							} //end of function
