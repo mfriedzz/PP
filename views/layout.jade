@@ -46,6 +46,11 @@ html(lang='en')
 		|   
 		body
 
+//- Print the currently logged-in user's name
+//- h4 Welcome, #{user.username}!
+
+
+
 .container-fluid
 	nav.navbar.navbar-inverse.navbar-fluid-top.navbar-header(role='navigation')
 		.container-fluid
@@ -56,8 +61,8 @@ html(lang='en')
 
 					img#Logo(alt='Brand', src='logo/purplepeople2.gif')
 					|                 
-					a.form-control(href='login2.html') Login
-					|                 
+					a.form-control(href='/auth/logout') Logout
+					|               
 					a.form-control(href='about.html') About
 					|                 
 					a.form-control(href='compatiblecouples') Compatible Couples
@@ -67,6 +72,7 @@ html(lang='en')
 					input.form-control(type='text', placeholder='Password')
 					|                   
 					button.btn.btn-success(type='submit') Sign In
+
 
 	body
 		block content
