@@ -6,10 +6,10 @@ block content
 		//- p: a(href="/") 
 		ul#searchresult.list-unstyled
 			//- for dataFromServer in Person
-			//- 	li name #{dataFromServer.firstName}
-			//- 	li Age: #{dataFromServer.age}
-			//- 	li Have Children: #{dataFromServer.hasChildren}
-			//- 	li Have Pets: #{dataFromServer.haspets}
-			//- 	li Served in Military: #{dataFromServer.militaryService}		
-						//- a.btn.btn-primary.view(href="/#{job._id}") details
+			li name #{contact.name.firstName } + #{contact.name.lastName }
+				li Age: #{contact.age.age}
+				li Have Children: #{contact.details.hasChildren}
+				li Have Pets: #{contact.pets.pets}
+				li Served in Military: #{contact.details.militaryService}		
+				//- 		//- a.btn.btn-primary.view(href="/#{job._id}") details
 						

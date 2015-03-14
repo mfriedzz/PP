@@ -88,5 +88,6 @@ module.exports = {
 
     // If not, redirect to login
     res.redirect('/auth/login');
+      // res.redirect('/carousel');
   }
 };

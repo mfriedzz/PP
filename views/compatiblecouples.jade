@@ -28,9 +28,12 @@ block content
   .row
     .col-md-6.coupleprofile
           aside
-            h2.profile Your Couple's Profile
+            h2.profile Your Couple's Profile:
+            h3.profilename Logged In Couple's Name & Email:
+            h4 #{user.username} 
+            h4 #{user.email}
             h3.profilestatistics Profile Statistics:
-            h3  Your Couple Pictures: 
+            h3.profilepictures  Your Couple's Pictures: 
        
         .col-md-6.couplessearch
           h2(style='color:#000000') Compatible Couples Search Criteria:
@@ -42,24 +45,169 @@ block content
               br
               |               Age Range Max Age: 
               input#maxage(type='number', name='maxage', value='18', min='18', max='115')
-            br
-            |             Children:
-            input#childrenyes(type='radio', name='children', value='true')
-            |  Yes
-            input#childrenno(type='radio', name='children', value='false', checked='checked')
-            |  No
-            br
-            |             Pets:
-            input#petsyes(type='radio', name='pets', value='true')
-            |  Yes
-            input#petsno(type='radio', name='pets', value='false', checked='checked')
-            |  No
-            br
-            |             Served in Military:
-            input#militaryyes(type='radio', name='militaryservice', value='true')
-            |  Yes
-            input#militaryno(type='radio', name='militaryservice', value='false', checked='checked')
-            |  No
+              br
+              |             Children:
+              input#childrenyes(type='radio', name='children', value='true')
+              |  Yes
+              input#childrenno(type='radio', name='children', value='false', checked='checked')
+              |   No
+              br
+              |               Pets:
+              input#petsyes(type='radio', name='pets', value='true')
+              |  Yes
+              input#petsno(type='radio', name='pets', value='false', checked='checked')
+              |  No
+              br
+              |             Served in Military:
+              input#militaryyes(type='radio', name='militaryservice', value='true')
+              |  Yes
+              input#militaryno(type='radio', name='militaryservice', value='false', checked='checked')
+              |  No
+              br
+              br
+              //- document.querySelector('input[name=sessionID]').value = 'some new value';
+              tr(data-bind="visible:visible")
+                th
+                  label(data-bind='text:label')
+                td
+                  input.flow-textbox(type='text' data-bind="value:value, valueUpdate:event, disable:disable, attr:{ id:id }")
+                td
+                  span(data-bind='text:description')
+
+              ul.nav.pull-center: li.dropdown
+                a.dropdown-toggle(href="#", data-toggle="dropdown", name='state')
+                  | State
+                  b.caret
+                  select(name='state', size='1')
+                      option(value='AL') Alabama
+                      |   
+                      option(value='AK') Alaska
+                      |   
+                      option(value='AZ') Arizona
+                      |   
+                      option(value='AR') Arkansas
+                      |   
+                      option(value='CA') California
+                      |   
+                      option(value='CO') Colorado
+                      |   
+                      option(value='CT') Connecticut
+                      |   
+                      option(value='DE') Delaware
+                      |   
+                      option(value='DC') Dist of Columbia
+                      |   
+                      option(value='FL') Florida
+                      |   
+                      option(value='GA') Georgia
+                      |   
+                      option(value='HI') Hawaii
+                      |   
+                      option(value='ID') Idaho
+                      |   
+                      option(value='IL') Illinois
+                      |   
+                      option(value='IN') Indiana
+                      |   
+                      option(value='IA') Iowa
+                      |   
+                      option(value='KS') Kansas
+                      |   
+                      option(value='KY') Kentucky
+                      |   
+                      option(value='LA') Louisiana
+                      |   
+                      option(value='ME') Maine
+                      |   
+                      option(value='MD') Maryland
+                      |   
+                      option(value='MA') Massachusetts
+                      |   
+                      option(value='MI') Michigan
+                      |   
+                      option(value='MN') Minnesota
+                      |   
+                      option(value='MS') Mississippi
+                      |   
+                      option(value='MO') Missouri
+                      |   
+                      option(value='MT') Montana
+                      |   
+                      option(value='NE') Nebraska
+                      |   
+                      option(value='NV') Nevada
+                      |   
+                      option(value='NH') New Hampshire
+                      |   
+                      option(value='NJ') New Jersey
+                      |   
+                      option(value='NM') New Mexico
+                      |   
+                      option(value='NY') New York
+                      |   
+                      option(value='NC') North Carolina
+                      |   
+                      option(value='ND') North Dakota
+                      |   
+                      option(value='OH') Ohio
+                      |   
+                      option(value='OK') Oklahoma
+                      |   
+                      option(value='OR') Oregon
+                      |   
+                      option(value='PA') Pennsylvania
+                      |   
+                      option(value='RI') Rhode Island
+                      |   
+                      option(value='SC') South Carolina
+                      |   
+                      option(value='SD') South Dakota
+                      |   
+                      option(value='TN') Tennessee
+                      |   
+                      option(value='TX') Texas
+                      |   
+                      option(value='UT') Utah
+                      |   
+                      option(value='VT') Vermont
+                      |   
+                      option(value='VA') Virginia
+                      |   
+                      option(value='WA') Washington
+                      |   
+                      option(value='WV') West Virginia
+                      |   
+                      option(value='WI') Wisconsin
+                      |   
+                      option(value='WY') Wyoming
+
+                
+              ul.dropdown-menu
+
+              ul.nav.pull-center: li.dropdown
+                a.dropdown-toggle(href="#", data-toggle="dropdown", name='distancefromlocation')
+                  | Distance from this location
+                  b.caret
+                  select(name='miles', size='1')
+                      option(value='1') 1 Mile
+                      |   
+                      option(value='5') 5 Miles
+                      |   
+                      option(value='10') 10 Miles
+                      |   
+                      option(value='15') 15 Miles
+                      |   
+                      option(value='20') 20 Miles
+
+                  ul.dropdown-menu
+
+              //- $.get('/compatiblecouples', function(html) 
+              //-   {
+              //-       process_listing(html);
+              //-   });
+            
+
+              
             br
             br
             input#submitbutton(type='submit', name='submitform', value='Search')
@@ -69,8 +217,8 @@ block content
         
     //- footer
     //-   | Copyright @ 2015 MDF
-    //- script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js')
-    //- script(src='http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js')
-    //- script(src='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.js')
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js')
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.js')
     //- script(src='compatiblecouples.js')
     //- script(src='search.js')

@@ -1,10 +1,21 @@
 // Client Side
 
 
+// var viewCoupleDetails = function(e){
+//   e.preventDefault();
+
+//   var pickedCouple = $(this).closest('coupleId');
+//   var targetId = originalApplicant.attr('data-id');
+
+//   $.get('compatiblecouplesearchresult/:id', {targetId: targetId}, function(dataFromServer){
+//       originalApplicant.remove();
+//   });
+
+
 
 // Initialize the event listeners
 $(document).on('ready', function(){
-
+   // $('.profile').append('<br/>' + "    " +  'user' + '</br>');
 
 $('#submitbutton').on('click', function(e){
     e.preventDefault();
@@ -59,8 +70,9 @@ $('#submitbutton').on('click', function(e){
           
          var result = dataFromServer.map(function (result)
                  { 
-
-                    return  $('.couplesearchresults').append( "<a href='/compatiblecouplesearchresult' class='searchresults' class='expand'>" + '<li>' + result.contact.name.firstName + result.contact.name.lastName + 
+                    console.log("result", result);
+                    return  $('.couplesearchresults').append( "<a href='/compatiblecouplesearchresult/" + result._id + " ' class='searchresults' class='expand'>" 
+                      + '<li>' + result.contact.name.firstName + result.contact.name.lastName + 
                       result.contact.details.hasChildren + result.contact.pets.pets  + result.contact.details.militaryService +
                       result.contact.age.age + result.coupledWith.coupleId + '<li>' + '</a>');
 

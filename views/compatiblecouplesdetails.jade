@@ -13,7 +13,7 @@ block content
 
 #coupledetails
 	h1 Vital Statistics	
-p.
+p.result.contact.name.firstName
 	| How Long Together?
 
 | Where are each of you from?
@@ -30,3 +30,10 @@ for child in children-list
 	li.Age Age
 	li.Sex Sex
 	li.other details
+
+
+//- return  $('.couplesearchresults').append( "<a href='/compatiblecouplesdetails" + result._id + " 
+	' class='searchresults' class='expand'>" 
+//-                       + '<li>' + result.contact.name.firstName + result.contact.name.lastName + 
+//-                       result.contact.details.hasChildren + result.contact.pets.pets  + result.contact.details.militaryService +
+//-                       result.contact.age.age + result.coupledWith.coupleId + '<li>' + '</a>');

@@ -4,7 +4,14 @@ var __ = require("underscore");
 var searchController = {
 	
 	renderPage: function(req,res) {
-			res.render('compatiblecouples');
+
+			res.render('compatiblecouples', {
+      						user: req.user
+    					});
+
+			// res.render('compatiblecouples', function(err, html){
+			// 	$(.profile).append(user);
+			// });
 	},
 
 	search: function(req, res) {
@@ -13,8 +20,7 @@ var searchController = {
 			var searchCriteria = req.body;
 			console.log("Search CRITERIA!", searchCriteria);
 
-
-				//Person.find({'contact.age.age' : { '$gt' : 17 }},
+//Person.find({'contact.age.age' : { '$gt' : 17 }},
 			Person.find(   {"contact.details.hasChildren": searchCriteria.children,
 						 	"contact.pets.pets": searchCriteria.pets,
 						 	"contact.details.militaryService": searchCriteria.military, 
@@ -98,6 +104,7 @@ var searchController = {
 									 		coupleResults.push({firstname: person.contact.name.firstName,
 									 							lastName: person.contact.name.lastName,
 									 		 					coupleId: person.coupledWith.coupleId,
+									 		 					uniqueId: person._id,
 									 							matchedOn : {
 									 											matchChild: 	matchedOnChildren,
 									 							 				matchPets: 		matchedOnPets,
@@ -110,29 +117,10 @@ var searchController = {
 									 }); // end coupleResultsTemp map function
 
 									console.log("Couple Results ", coupleResults);
-									
+			
 										
-										// var tempCoupleResults = __.filter(coupleResults, function (element, index) {
-   							// 				 // tests if the element has a duplicate in the rest of the array
-    						// 				for(index += 1; index < coupleResults.length; index += 1) {
-        		// 								if (__.isEqual(element, coupleResults[index])) 
-        		// 								{
-          //  											 return false;
-       			// 								}
-    						// 				}
-    						// 				return true;
-										// });
-
-										var tempCoupleResults = __.uniq(coupleResults, function(i){  
-
-   													return [i];   //'a','b'
-
-											});
-										
-
-										console.log(" Couples linked by ID ", tempCoupleResults);
 										res.send(results);
-									//res.render('compatiblecouplesearchresult', results); to call template
+							
 								
 								} // end of if else 
 								
@@ -149,14 +137,16 @@ var searchController = {
 	viewCoupleDetails: function(req,res)
 		{
 
-			// Person.find({}, function(err, coupleFromDB){
-
-			// 	res.render('compatiblecouplesearchresult', {
-			// 	Person: couplefromDB
 			
-			// 	}; // end of res.render
-			// }); // end of Person.find
-			res.render('compatiblecouplesearchresult');
+		var viewid = req.params.id;
+		console.log("View ID from searchController view", viewid);
+		Person.findById(viewid, function(err, result){
+			
+			res.render('compatiblecouplesearchresult', result);
+			// res.send(result);	
+			//res.redirect('/compatiblecouplesearchresult');	
+		});
+			//  oldres.render('compatiblecouplesearchresult');
 
 		} // end of viewCoupleDetails
 	

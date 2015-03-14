@@ -77,18 +77,23 @@ app.get('/auth/logout', authenticationController.logout);
 // By including this middleware (defined in our config/passport.js module.exports),
 // We can prevent unauthorized access to any route handler defined after this call
 // to .use()
+app.get('/', indexController.index);
 app.use(passportConfig.ensureAuthenticated);
 
 // Because this route occurs after the ensureAuthenticated middleware, it will require
 // authentication before access is allowed.
-app.get('/', indexController.index);
+app.get('/compatiblecouples', indexController.index);
 
 // controllers
 //app.get('/', indexController.index);
 
 app.get('/compatiblecouples', searchController.renderPage);
 app.post('/compatiblecouples/search', searchController.search);
-app.get('/compatiblecouplesearchresult', searchController.viewCoupleDetails);
+app.get('/compatiblecouplesearchresult/:id', searchController.viewCoupleDetails);
+//app.get('/compatiblecouplesdetails/:id', searchController.viewCoupleDetails);
+
+//app.get('/deleteApplicant/:id', indexController.deleteApplicant);
+
 
 // api routes
 
