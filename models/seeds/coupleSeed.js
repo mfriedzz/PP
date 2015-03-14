@@ -1,12 +1,21 @@
 // Couple Seed 
 
-var Person = require('../couple.js');
-
+var Person = require('../user.js');
+console.log("COuple Seed");
 Person.find({}, function(err, documents){
 	if(documents.length === 0){
 		// Prefill the empty database with some Couples
 
 		var person1 = new Person({
+		
+		username: "Person1", 
+    				
+    				
+
+	  	email: "Person1@aol.com",
+	    				
+	  
+	  	password: "Password1",
 
 
 		coupledWith:        {
@@ -100,6 +109,14 @@ Person.find({}, function(err, documents){
 
 var person2 = new Person({
 
+		username: "Person2", 
+    				
+    				
+
+	  	email: "Person2@aol.com",
+	    				
+	  
+	  	password: "Password1",
 
 		coupledWith:        {
 								coupleId: 1
@@ -189,6 +206,14 @@ var person2 = new Person({
 
 var person3 = new Person({
 
+		username: "Person3", 
+    				
+    				
+
+	  	email: "Person3@aol.com",
+	    				
+	  
+	  	password: "Password1",
 
 		coupledWith:        {
 								coupleId: 2
@@ -277,6 +302,16 @@ var person3 = new Person({
 	person3.save();
 
 	var person4 = new Person({
+
+
+		username: "Person4", 
+    				
+    				
+
+	  	email: "Person4@aol.com",
+	    				
+	  
+	  	password: "Password1",
 
 
 		coupledWith:        {
@@ -368,6 +403,16 @@ var person3 = new Person({
 var person5 = new Person({
 
 
+		username: "Person5", 
+    				
+    				
+
+	  	email: "Person5@aol.com",
+	    				
+	  
+	  	password: "Password1",
+
+
 		coupledWith:        {
 								coupleId: 3
 							},
@@ -457,6 +502,15 @@ var person5 = new Person({
 var person6 = new Person({
 
 
+		username: "Person6", 
+    				
+    				
+
+	  	email: "Person6@aol.com",
+	    				
+	  
+	  	password: "Password1",
+
 		coupledWith:        {
 								coupleId: 3
 							},
@@ -544,6 +598,16 @@ var person6 = new Person({
 	person6.save();
 
 	var person7 = new Person({
+
+
+		username: "Person7", 
+    				
+    				
+
+	  	email: "Person7@aol.com",
+	    				
+	  
+	  	password: "Password1",
 
 
 		coupledWith:        {
@@ -635,6 +699,16 @@ var person6 = new Person({
 	var person8 = new Person({
 
 
+		username: "Person8", 
+    				
+    				
+
+	  	email: "Person8@aol.com",
+	    				
+	  
+	  	password: "Password1",
+
+
 		coupledWith:        {
 								coupleId: 2
 							},
@@ -723,6 +797,17 @@ var person6 = new Person({
 	person8.save();
 
 	var person9 = new Person({
+
+
+		username: "Person9", 
+    				
+    				
+
+	  	email: "Person9@aol.com",
+	    				
+	  
+	  	password: "Password1",
+
 
 
 		coupledWith:        {

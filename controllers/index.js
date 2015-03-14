@@ -7,7 +7,7 @@ var indexController = {
     // logged-in user's document from the database
     // via the injected "req.user" variable
     // console.log("req.user", req.user.username);
-    res.render('carousel', {
+    res.render('index', {
       user: req.user
     });
   }

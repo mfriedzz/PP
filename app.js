@@ -84,6 +84,7 @@ app.use(passportConfig.ensureAuthenticated);
 
 // Because this route occurs after the ensureAuthenticated middleware, it will require
 // authentication before access is allowed.
+
 app.get('/compatiblecouples', searchController.renderPage);
 
 // controllers

@@ -1,25 +1,17 @@
 // Client Side
 
 
-// var viewCoupleDetails = function(e){
-//   e.preventDefault();
-
-//   var pickedCouple = $(this).closest('coupleId');
-//   var targetId = originalApplicant.attr('data-id');
-
-//   $.get('compatiblecouplesearchresult/:id', {targetId: targetId}, function(dataFromServer){
-//       originalApplicant.remove();
-//   });
-
 
 
 // Initialize the event listeners
 $(document).on('ready', function(){
-   // $('.profile').append('<br/>' + "    " +  'user' + '</br>');
+   console.log("Got to search.js on Ready function");
 
 $('#submitbutton').on('click', function(e){
     e.preventDefault();
     
+  console.log("Got to search.js submit button");
+  
   var formMinAge = $('#minage').val();
   var formMaxAge = $('#maxage').val();
   var formChildrenYes = $('#childrenyes').val();
@@ -30,7 +22,6 @@ $('#submitbutton').on('click', function(e){
   var formMilitaryNo = $('#militaryno').val();
 
 
-       
     
 
     var formChildren = $("input:radio[name=children]:checked").val();
@@ -39,18 +30,24 @@ $('#submitbutton').on('click', function(e){
 
     var formMilitary = $("input:radio[name=militaryservice]:checked").val();
 
+    
+    var formState = $("#state").val();
+
+    var formDistance = $("#distancefromhome").val();
 
   
 
-  var searchCriteria = {
-      minAge: formMinAge,
-      maxAge: formMaxAge,
-      children: formChildren,
-      pets: formPets,
-      military: formMilitary
-  };
+    var searchCriteria = {
+        minAge: formMinAge,
+        maxAge: formMaxAge,
+        children: formChildren,
+        pets: formPets,
+        military: formMilitary,
+        state: formState,
+        distance: formDistance
+    };
 
-  //console.log("form items not post", formMinAge,formMaxAge,formChildrenYes,formChildrenNo, formPetsYes, formPetsNo, formMilitaryYes, formMilitaryNo);
+  console.log("form items not post", searchCriteria);
   //console.log("form items Search Criteria before post ", searchCriteria.minAge, searchCriteria.maxAge,
   //              searchCriteria.children, searchCriteria.pets, searchCriteria.military);
 
@@ -63,9 +60,7 @@ $('#submitbutton').on('click', function(e){
 
       console.log('Post data', dataFromServer.firstName);
 
-          // $('#searchresult').append( '<li>' + dataFromServer.firstname + dataFromServer.lastname + 
-          //   + dataFromServer.age + dataFromServer.hasChildren + dataFromServer.haspets
-          //   + dataFromServer.militaryService + '<li>');
+         
          $(".couplesearchresults").empty();
           
          var result = dataFromServer.map(function (result)
@@ -96,4 +91,4 @@ $('#submitbutton').on('click', function(e){
 
 
 
-}); // End on Ready from Top
+}); // End document on Ready from Top

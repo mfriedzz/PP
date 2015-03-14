@@ -1,0 +1,73 @@
+extends layout
+
+block content
+    button#submitbutton(type='submit', value='Click Here to Create a Login!', name='createlogin', onclick="alert('Coming Soon !!!')") Click Here to Create a Login!
+      aside
+        br
+        |     
+        h1 Here is the latest News!
+        |     
+        br
+        |     
+        br
+        |     
+        hr
+        |     
+        br
+        |     
+        p  Hello here is some stuff to say.
+        |     
+        p  Here is some more stuff.
+        |     
+        p
+          | Here is an article about how to setup a lot of different things.
+        p
+          | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed et esse dicta consequuntur eos quidem! Ex porro sit quas at soluta cupiditate nemo odio explicabo magni. Hic dicta aspernatur aliquam.
+        |       Also, How to paint your windows!
+        |       
+        br
+        |       
+        hr
+        |       
+        br
+        |       And How to prepare for Winter!
+        |     
+        p
+      |       
+      |         
+      #column1.column
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+        |          
+        #carousel
+          ul
+            figure
+              li
+                figcaption  Happy Couple # 1 having a great time today in New York City!!!
+                img(src='logo/artdeco2.jpg', alt='Couple 1')
+            |             
+            figure
+              li
+                figcaption  Happy Couple # 2 having a great time today in New London Town!!!
+                img(src='logo/artdeco3.jpg', alt='Couple 2')
+            |             
+            figure
+              li
+                figcaption  Happy Couple # 3 having a great time today in Paris, France!!!
+                img(src='logo/artdeco4.jpg', alt='Couple 3')
+          |       
+          script.
+            $(document).ready(function(){
+            // Set the interval to be 5 seconds
+            var i = setInterval(function(){
+            $("#carousel ul").animate({marginLeft:-480},1000,function(){
+            $(this).find("li:last").after($(this).find("li:first"));
+            $(this).css({marginLeft:0});
+            })
+            },5000);
+            });
+            //window.onload = init;
+      
+        </div>
+      footer
+        | Copyright @ 2014 MDF
+    

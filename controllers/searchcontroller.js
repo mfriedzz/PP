@@ -1,13 +1,15 @@
-var Person = require('../models/couple.js');
+var User = require('../models/user.js');
 var __ = require("underscore");
 
+console.log ("got to search controller");
 var searchController = {
 	
 	renderPage: function(req,res) {
-
+				console.log("Search controller res render before res render");
 			res.render('compatiblecouples', {
       						user: req.user
     					});
+				console.log("Search controller res render after res render");
 
 			// res.render('compatiblecouples', function(err, html){
 			// 	$(.profile).append(user);
@@ -21,7 +23,7 @@ var searchController = {
 			console.log("Search CRITERIA!", searchCriteria);
 
 //Person.find({'contact.age.age' : { '$gt' : 17 }},
-			Person.find(   {"contact.details.hasChildren": searchCriteria.children,
+			User.find(   {"contact.details.hasChildren": searchCriteria.children,
 						 	"contact.pets.pets": searchCriteria.pets,
 						 	"contact.details.militaryService": searchCriteria.military, 
 							"contact.age.age" : { '$gte' : searchCriteria.minAge , '$lte' : searchCriteria.maxAge }
@@ -140,7 +142,7 @@ var searchController = {
 			
 		var viewid = req.params.id;
 		console.log("View ID from searchController view", viewid);
-		Person.findById(viewid, function(err, result){
+		User.findById(viewid, function(err, result){
 			
 			res.render('compatiblecouplesearchresult', result);
 			// res.send(result);	

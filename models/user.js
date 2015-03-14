@@ -9,21 +9,127 @@ var bcrypt = require('bcrypt');
  * saving if a duplicate entry is found.
  */
 var userSchema = mongoose.Schema({
-  username: {
-    type: String,
-    required: true,
-    unique: true
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true
-  },
-  password: {
-    type: String,
-    required: true
-  }
-});
+ // Password Fields 
+  username:       {
+                    type: String,
+                    required: true,
+                    unique: true
+                  },
+
+  email:          {
+                    type: String,
+                    required: true,
+                    unique: true
+                  },
+
+  password:       {
+                    type: String,
+                    required: true
+                  },
+
+// Data Fields
+
+  coupledWith:     {
+                    coupleId: Number
+                  } ,     
+      contact: {  
+
+            name:     {
+                    firstName: String,
+                    middleName: String,
+                    lastName: String,
+                  },
+    
+            phones:   {
+                    homePhone: String,
+                    mobilePhone: String,
+                    workPhone: String,
+                  },
+
+            sex:    {
+                    sex: String,
+                  }, 
+
+            age:    {
+                    birthDate: Date,
+                    age: Number,
+                  },
+
+            birthplace: {
+                    birthCity: String,
+                    birthState: String,
+                  },
+
+            addresses: {  
+
+                  home:   {
+                        homeStreetAddress: String,
+                        homeMailingAddress: String,
+                        homeCity: String,
+                        homeState: String,
+                        homeZipCode: String,
+                        homeEmail: String,
+                        homeTwitter: String,
+                      },
+
+                  work:   {
+
+                        workPlaceName: String,
+                        workStreetAddress: String,
+                        workMailingAddress: String,
+                        workCity: String,
+                        workState: String,
+                        workZipCode: String,
+                        workEmail: String,
+                        workTwitter: String,
+                        workJobPosition: String,
+                        workJobDescription: String,
+                      },
+                  }, //addresses end
+
+
+            details:   { 
+                        
+                        hasChildren: Boolean,
+                        numberOfChildren: Number,
+                        militaryService: Boolean,
+                        militaryDetails: [],
+                        allowCoriCheck: Boolean,
+                        activities: [],
+                  },
+
+            ifChild:  {
+
+                        isChild: Boolean,
+                        childLikes: [],
+                        childParent1: String,
+                        childParent2: String,
+                  },
+
+            
+            pets:     {     
+
+                    pets: Boolean,
+                    PetType: String,
+                    PetBreed: String,
+                    PetName: String,
+                  },
+
+          marriage:       {
+                    partner1Married: Boolean,
+                    partner1CivilUnion: Boolean,
+                  }
+
+          
+
+    
+
+        } // contact end
+}); //end of userSchema
+
+//  Schema and Model for the Couple, defined as a person
+
+
 
 /**
  * This allows us to hook into the pre-save DB flow. Our
@@ -84,6 +190,7 @@ userSchema.methods.comparePassword = function(candidatePassword, next){
 
 // Our user model
 var User = mongoose.model('user', userSchema);
+
 
 // Make user model available through exports/require
 module.exports = User;
