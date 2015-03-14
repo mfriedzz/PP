@@ -73,21 +73,23 @@ app.post('/auth/signup', authenticationController.processSignup);
 // Any requests to log out can be handled at this url
 app.get('/auth/logout', authenticationController.logout);
 
+app.get('/', indexController.index);
+
 // ***** IMPORTANT ***** //
 // By including this middleware (defined in our config/passport.js module.exports),
 // We can prevent unauthorized access to any route handler defined after this call
 // to .use()
-app.get('/', indexController.index);
+
 app.use(passportConfig.ensureAuthenticated);
 
 // Because this route occurs after the ensureAuthenticated middleware, it will require
 // authentication before access is allowed.
-app.get('/compatiblecouples', indexController.index);
+app.get('/compatiblecouples', searchController.renderPage);
 
 // controllers
 //app.get('/', indexController.index);
 
-app.get('/compatiblecouples', searchController.renderPage);
+// app.get('/compatiblecouples', searchController.renderPage);
 app.post('/compatiblecouples/search', searchController.search);
 app.get('/compatiblecouplesearchresult/:id', searchController.viewCoupleDetails);
 //app.get('/compatiblecouplesdetails/:id', searchController.viewCoupleDetails);
