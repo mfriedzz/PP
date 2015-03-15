@@ -7,8 +7,9 @@ block content
           aside
             h2.profile Your Couple's Profile:
             h3.profilename Logged In Couple's Name & Email:
-            h4 #{user.username} 
-            h4 #{user.email}
+            h4 #{user.username}
+            h4 #{user.contact.name.firstName} 
+            h4(id=useremail) #{user.email}
             h3.profilestatistics Profile Statistics:
             h3.profilepictures  Your Couple's Pictures: 
        
@@ -21,7 +22,7 @@ block content
               input#minage(type='number', name='minage', value='18', min='18', max='115')
               br
               |               Age Range Max Age: 
-              input#maxage(type='number', name='maxage', value='18', min='18', max='115')
+              input#maxage(type='number', name='maxage', value='60', min='18', max='115')
               br
               |             Children:
               input#childrenyes(type='radio', name='children', value='true')
@@ -42,13 +43,12 @@ block content
               |  No
               br
               br
-              //- document.querySelector('input[name=sessionID]').value = 'some new value';
-                            
               ul.nav.pull-center: li.dropdown
-                  a.dropdown-toggle(href="#", data-toggle="dropdown", name='state')
+                  a.dropdown-toggle(href="#state", data-toggle="dropdown", id="state", name='state')
                       | State
                       b.caret
-                select(name='state', size='1')
+                select(id="state", name='state', size='1')
+                    option(value='', selected='selected') Select a State
                     option(value='AL') Alabama
                     |   
                     option(value='AK') Alaska
@@ -91,7 +91,7 @@ block content
                     |   
                     option(value='MD') Maryland
                     |   
-                    option(value='MA') Massachusetts
+                    option(value='Massachusetts') Massachusetts
                     |   
                     option(value='MI') Michigan
                     |   
@@ -127,7 +127,7 @@ block content
                     |   
                     option(value='PA') Pennsylvania
                     |   
-                    option(value='RI') Rhode Island
+                    option(value='Rhode Island') Rhode Island
                     |   
                     option(value='SC') South Carolina
                     |   
@@ -151,37 +151,35 @@ block content
                     |   
                     option(value='WY') Wyoming
 
+                      ul.dropdown-menu    
+                  ul.nav.pull-center: li.dropdown
+                      a.dropdown-toggle(href="#distancefromhome", data-toggle="dropdown", id='distancefromhome', name='distancefromhome')
+                      | Distance from this location
+                      b.caret
+                          select(name='miles', size='1')
+                              option(value='1') 1 Mile
+                              |   
+                              option(value='5') 5 Miles
+                              |   
+                              option(value='10') 10 Miles
+                              |   
+                              option(value='15') 15 Miles
+                              |   
+                              option(value='20') 20 Miles
+
+                      br
+                      br
+                      br
                 
-              ul.dropdown-menu
+              input#submitbutton(type="button", name='submitform', value='Search')
 
-              ul.nav.pull-center: li.dropdown
-                a.dropdown-toggle(href="#", data-toggle="dropdown", name='distancefromlocation')
-                  | Distance from this location
-                  b.caret
-              select(name='miles', size='1')
-                  option(value='1') 1 Mile
-                  |   
-                  option(value='5') 5 Miles
-                  |   
-                  option(value='10') 10 Miles
-                  |   
-                  option(value='15') 15 Miles
-                  |   
-                  option(value='20') 20 Miles
-
-                  ul.dropdown-menu
-            
-                            
-              br
-              br
-              input#submitbutton(type='submit', name='submitform', value='Search')
-            h2(style='color:#000000')  Couple Search Results 
+            h3(style='color:#000000')  Couple Search Results 
             .couplesearchresults
-              h4 Matched on:
+                            h4 Matched on:
         
     
-    script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js')
-    script(src='http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js')
-    script(src='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.js')
+    //- script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+    //- script(src='http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js')
+    //- script(src='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.js')
     //- script(src='compatiblecouples.js')
-    //- script(src='search.js')
+ 

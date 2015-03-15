@@ -1,7 +1,7 @@
-var User = require('../models/user.js');
+var Person = require('../models/user.js');
 var __ = require("underscore");
 
-console.log ("got to search controller");
+// console.log ("got to search controller");
 var searchController = {
 	
 	renderPage: function(req,res) {
@@ -22,10 +22,20 @@ var searchController = {
 			var searchCriteria = req.body;
 			console.log("Search CRITERIA!", searchCriteria);
 
-//Person.find({'contact.age.age' : { '$gt' : 17 }},
-			User.find(   {"contact.details.hasChildren": searchCriteria.children,
+			// check to make sure logged in user is not searched
+
+			// if (person.contact.addresses.home.homeEmail == loggedInUser){
+
+			// 		console.log("Do not search the logged in user", loggedInUser);
+
+					
+			// 	}
+
+			Person.find(   {"contact.details.hasChildren": searchCriteria.children,
 						 	"contact.pets.pets": searchCriteria.pets,
 						 	"contact.details.militaryService": searchCriteria.military, 
+						 	"contact.addresses.home.homeState": searchCriteria.state,
+						 	// "contact.addresses.home.homeCity": searchCriteria.distance, put in Google api lookup
 							"contact.age.age" : { '$gte' : searchCriteria.minAge , '$lte' : searchCriteria.maxAge }
 							},
 
@@ -34,6 +44,8 @@ var searchController = {
 								if (err) {
 									throw err;
 								} else { 
+
+
 									console.log("Person.find results ", results);
 									
 									 var coupleResultsTemp = results.map(function (person) { 
@@ -111,14 +123,16 @@ var searchController = {
 									 											matchChild: 	matchedOnChildren,
 									 							 				matchPets: 		matchedOnPets,
 									 							 				matchMilitary: 	matchedOnMilitary, 
-									 							 				matchAge:       matchedOnAge
+									 							 				matchAge:       matchedOnAge,
+									 							 				matchState:     person.contact.addresses.home.homeState,
+									 							 				matchDistance:  searchCriteria.distance 
 									 							 			}
 									 							 }); // end of coupleResults.push	
 									 						} // end of if flag check
 									 		
 									 }); // end coupleResultsTemp map function
 
-									console.log("Couple Results ", coupleResults);
+									console.log("Couples Matched on: ", coupleResults);
 			
 										
 										res.send(results);
@@ -142,7 +156,7 @@ var searchController = {
 			
 		var viewid = req.params.id;
 		console.log("View ID from searchController view", viewid);
-		User.findById(viewid, function(err, result){
+		Person.findById(viewid, function(err, result){
 			
 			res.render('compatiblecouplesearchresult', result);
 			// res.send(result);	

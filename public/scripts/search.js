@@ -5,6 +5,7 @@
 
 // Initialize the event listeners
 $(document).on('ready', function(){
+   
    console.log("Got to search.js on Ready function");
 
 $('#submitbutton').on('click', function(e){
@@ -30,10 +31,14 @@ $('#submitbutton').on('click', function(e){
 
     var formMilitary = $("input:radio[name=militaryservice]:checked").val();
 
+   
+    var formState = $('select[name=state][id=state]').val();
     
-    var formState = $("#state").val();
+    // var formState = $("#state").val();
 
-    var formDistance = $("#distancefromhome").val();
+    var formDistance = $('select[name=miles]').val();
+
+    var loggedInUser = $('#useremail').val();
 
   
 
@@ -44,7 +49,8 @@ $('#submitbutton').on('click', function(e){
         pets: formPets,
         military: formMilitary,
         state: formState,
-        distance: formDistance
+        distance: formDistance,
+        loggedInUser: loggedInUser
     };
 
   console.log("form items not post", searchCriteria);
@@ -56,29 +62,25 @@ $('#submitbutton').on('click', function(e){
      
       // Jquery for Post
 
-      console.log("form items from Post", searchCriteria, dataFromServer);
+      // console.log("form items from Post", searchCriteria, dataFromServer);
 
-      console.log('Post data', dataFromServer.firstName);
+      console.log('Data From Server ', dataFromServer);
 
          
          $(".couplesearchresults").empty();
           
-         var result = dataFromServer.map(function (result)
+         var mappedResults = dataFromServer.map(function (result)
                  { 
-                    console.log("result", result);
-                    return  $('.couplesearchresults').append( "<a href='/compatiblecouplesearchresult/" + result._id + " ' class='searchresults' class='expand'>" 
-                      + '<li>' + result.contact.name.firstName + result.contact.name.lastName + 
+                    
+         return  $('.couplesearchresults').append("<li>" + "<a href='/compatiblecouplesearchresult/" + result._id + "'>" + result.contact.name.firstName + result.contact.name.lastName + 
                       result.contact.details.hasChildren + result.contact.pets.pets  + result.contact.details.militaryService +
-                      result.contact.age.age + result.coupledWith.coupleId + '<li>' + '</a>');
+                      result.contact.age.age + result.coupledWith.coupleId + '</a>' + "</li>");
 
                                         
                   }); // end of result  
 
 
-            //return;
-            // $( '.couplesearchresults' ).each(function(){
-            //      this.reset();
-            //  });
+            
       }); // end of post for search
 
     

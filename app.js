@@ -73,6 +73,16 @@ app.post('/auth/signup', authenticationController.processSignup);
 // Any requests to log out can be handled at this url
 app.get('/auth/logout', authenticationController.logout);
 
+// check to see if user is logged in
+
+app.get('*', function(req, res, next) {
+  // just use boolean for loggedIn
+  isAlreadyLoggedin = (res.locals.loggedIn = (req.user) ? true : false);
+  console.log("Checking if user is logged in ", isAlreadyLoggedin);
+
+  next();
+});
+
 app.get('/', indexController.index);
 
 // ***** IMPORTANT ***** //
@@ -96,6 +106,7 @@ app.get('/compatiblecouplesearchresult/:id', searchController.viewCoupleDetails)
 //app.get('/compatiblecouplesdetails/:id', searchController.viewCoupleDetails);
 
 //app.get('/deleteApplicant/:id', indexController.deleteApplicant);
+
 
 
 // api routes
