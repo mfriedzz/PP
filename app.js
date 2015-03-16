@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var indexController = require('./controllers/index.js');
 var searchController = require('./controllers/searchcontroller.js');
 var authenticationController = require('./controllers/authentication');
+var nodemailer = require('nodemailer');
 var __ = require("underscore");
 
 // Mongoose
@@ -106,6 +107,46 @@ app.get('/compatiblecouplesearchresult/:id', searchController.viewCoupleDetails)
 //app.get('/compatiblecouplesdetails/:id', searchController.viewCoupleDetails);
 
 //app.get('/deleteApplicant/:id', indexController.deleteApplicant);
+
+// Join Form after authentication
+
+app.get('/join', indexController.join);
+
+// contact form
+app.get('/contact', indexController.contact);
+
+// NodeMailer for contact form
+
+app.post('/contact', function (req, res) {
+  var mailOpts, smtpTrans;
+  //Setup Nodemailer transport, I chose gmail. Create an application-specific password to avoid problems.
+  smtpTrans = nodemailer.createTransport('SMTP', {
+      service: 'Gmail',
+      auth: {
+          user: "me@gmail.com",
+
+          pass: "application-specific-password" 
+      }
+  });
+  //Mail options
+  mailOpts = {
+      from: req.body.name + ' &lt;' + req.body.email + '&gt;', //grab form data from the request body object
+      to: 'me@gmail.com',
+
+      subject: 'Website contact form',
+      text: req.body.message
+  };
+  smtpTrans.sendMail(mailOpts, function (error, response) {
+      //Email not sent
+      if (error) {
+          res.render('contact', { title: 'Purple People - Contact', msg: 'Error occured, message not sent.', err: true, page: 'contact' })
+      }
+      //Yay!! Email sent
+      else {
+          res.render('contact', { title: 'Purple People - Contact', msg: 'Message sent! Thank you.', err: false, page: 'contact' })
+      }
+  });
+});
 
 
 

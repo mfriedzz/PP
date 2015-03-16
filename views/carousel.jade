@@ -24,15 +24,17 @@ body
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
-              a.navbar-brand(href='#') Project name
+              a.navbar-brand(href='#') Purple People
             .navbar-collapse.collapse
               ul.nav.navbar-nav
                 li.active
-                  a(href='#') Home
+                  a(href='/') Home
                 li
-                  a(href='#about') About
+                  a(href='/about') Join
                 li
-                  a(href='#contact') Contact
+                  a(href='/contact') Contact
+                li
+                  a(href='/about') About
                 li.dropdown
                   a.dropdown-toggle(href='#', data-toggle='dropdown')
                     | Dropdown 
@@ -60,10 +62,11 @@ body
         li(data-target='#myCarousel', data-slide-to='2')
       .carousel-inner
         .item.active
-          img(src='data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==', alt='First slide')
+          //- img(src='data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==', alt='First slide')
+          img(src='/pics/couplewithbaby.jpeg', alt='First slide')
           .container
             .carousel-caption
-              h1 Example headline.
+              h1 Couple Number 1
               p
                 | Note: If you&apos;re viewing this page via a 
                 code file://
@@ -71,7 +74,7 @@ body
               p
                 a.btn.btn-lg.btn-primary(href='#', role='button') Sign up today
         .item
-          img(src='data:image/gif;base64,R0lGODlhAQABAIAAAGZmZgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==', alt='Second slide')
+          img(src='https://ununsplash.imgix.net/reserve/tdedkQnQGCgIhk9eoEkP_DSC_0983.JPG?q=75&fm=jpg&s=6a5691b52e0f3dcb148472b085d938c3', alt='Second slide')
           .container
             .carousel-caption
               h1 Another example headline.
@@ -80,7 +83,7 @@ body
               p
                 a.btn.btn-lg.btn-primary(href='#', role='button') Learn more
         .item
-          img(src='data:image/gif;base64,R0lGODlhAQABAIAAAFVVVQAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==', alt='Third slide')
+         img(src='/pics/couple1.jpeg', alt='Third slide')
           .container
             .carousel-caption
               h1 One more for good measure.

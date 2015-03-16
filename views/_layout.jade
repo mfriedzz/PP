@@ -62,11 +62,13 @@ html(lang='en')
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
-              a.navbar-brand(href='#') Project name
+              a.navbar-brand(href='#') Purple People
             .navbar-collapse.collapse
               ul.nav.navbar-nav
                 li.active
                   a(href='/') Home
+                li
+                  a(href='/join') Join
                 li
                   //- if(user logged in)
                   if ( isAlreadyLoggedin == true)
@@ -76,9 +78,9 @@ html(lang='en')
 
                   //- a(href='/auth/login') Login
                 li
-                  a(href='#about') About
+                  a(href='/contact') Contact
                 li
-                  a(href='#contact') Contact
+                  a(href='/about') About
                 li.dropdown
                   a.dropdown-toggle(href='#', data-toggle='dropdown')
                     | Dropdown 

@@ -11,8 +11,26 @@ var indexController = {
       user: req.user
     });
    console.log("req.user", req.user);
-  }
-};
+  },
+
+
+  contact: function(req, res)
+    {
+
+        res.render('contact', { title: 'Purple People - Contact', page: 'contact' });
+
+    },
+
+  join: function(req,res)
+    {
+
+      res.render('join');
+    },
+
+
+
+
+}; // end of indexController
 
 // Export our index control
 
