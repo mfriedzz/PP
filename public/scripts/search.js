@@ -92,11 +92,17 @@ $('#submitbutton').on('click', function(e){
 
 // Handle Details views 
 
-  // $('#finishdetails').on('click', function(e){
-  //   e.preventDefault();
+  $('#finishdetails').on('click', function(e){
+    e.preventDefault();
 
-  //   console.log("Finished details button");
+    console.log("Finished details button");
    
-  // });
+  });
+    
+// Handle Couple Meetup Button Clicked
+    $('#wheretomeet').on('click', function(e){
+      e.preventDefault();
+
+      });
 
 }); // End document on Ready from Top

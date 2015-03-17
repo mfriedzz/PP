@@ -105,6 +105,7 @@ app.get('/compatiblecouples', searchController.renderPage);
 app.post('/compatiblecouples/search', searchController.search);
 app.get('/compatiblecouplesearchdetails/:id', searchController.viewCoupleDetails);
 app.get('/compatiblecouplessearchdetails/:id', searchController.viewChildren);
+app.get('/couplemeetup',searchController.coupleMeetUp);
 //app.get('/compatiblecouplesdetails/:id', searchController.viewCoupleDetails);
 
 //app.get('/deleteApplicant/:id', indexController.deleteApplicant);

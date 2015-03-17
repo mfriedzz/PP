@@ -185,7 +185,12 @@ var searchController = {
 			});
 			//  oldres.render('compatiblecouplesearchresult');
 
-		} // end of viewChildren
+		}, // end of viewChildren
+	coupleMeetUp: function(req,res)
+		{
+			res.render('coupleMeetUp')
+      								
+		} //end of coupleMeetUp
 	
 	};  // end of searchController
 	
