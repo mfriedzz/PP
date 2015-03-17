@@ -18,7 +18,7 @@ block content
 				.panel.panel-default
 						.panel-heading Couple's Details
 							.panel-body
-				
+				form#coupledetailsresults
 					.col-md-6.col-md-6.vitalstats
 							aside
 								h2(style={color: 'black', background: 'green'}) <strong>Vital Statistics</strong>	
@@ -38,32 +38,59 @@ block content
 										h4 Nurse Practioner	
 								
 								h2.children(style={color: 'black', background: 'green'})  Children(If Any) details:
-								ul#children-list
-								for child in children-list
-									li.Name Name
-									li.Age Age
-									li.Sex Sex
-									li.other details
 
+
+								h4 Zachary Luke Friedman 
+									h4 3 Years old 
+									h4 Male 
+									h4 likes Ice Cream Avengers Iron Man
+								img(src='/pics/zack.jpg' width='30%', height='146px', alt='second slide')
+								//- ul#children-list
+								//- for child in children-list
+								//- 	li.Name Name
+								//- 	li.Age Age
+								//- 	li.Sex Sex
+								//- 	li.other details
+								br
+								br
+								br
 							
 								<input type="checkbox"> Click Here to Select This Couple
+
+
 
 								
 						.col-md-6.col-md-6.couplelikes
 
 							//- couple picture 1 couple picture 2 couple picture3
+
+							img(src='http://images4.fanpop.com/image/photos/16100000/O-Conell-and-Evey-movie-couples-16197664-1780-1167.jpg', width="30%", height='146px' alt='First slide')
+							img(src='http://images.idiva.com/media/photogallery/2012/Jan/happy_couple.jpg' width='30%', height='146px', alt='second slide')
+							img(src='http://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/articles/health_tools/infertility_treatments_slideshow/getty_rf_photo_of_couple_kayaking.jpg', width='30%', height='146px' alt='third slide')
+							br
+
 							<form>
 							form.likesanddislikes
 								label
 									h2(style={color: 'black', background: 'green'}) <strong>Couples Likes Dislikes & Interests:</strong>
-
-										h3.couplelikes(style={color: 'black', background: 'green'}) Likes: 
+										br
+										h3.couplelikes(style={color: 'black', background: '#ADD8E6'}) Likes: 
 											h4 Biking, Fishing, Board Games, Going to Movies
-
-										h3.coupledislikes(style={color: 'black', background: 'green'})  Dislikes:
+										br
+										h3.coupledislikes(style={color: 'black', background: '#ADD8E6'})  Dislikes:
 											h4 Mean People, Fast Talkers, Cats
-										h3.coupleinterests(style={color: 'black', background: 'green'}) Interests:
+										br
+										h3.coupleinterests(style={color: 'black', background: '#ADD8E6'}) Interests:
 											h4 Post Stamp Collector, wine taster
+										br
+										br
+										br
 							</form>
-
-				button.btn(data-action="bea") Finished Reviewing Couple Details
+							br
+							br
+							br 
+							br
+							br
+							br
+						input#finishdetails(type="button", name='finishdetails', value='Finished Reviewing Couple Details')
+				//- button.btn(data-action="bea") Finished Reviewing Couple Details

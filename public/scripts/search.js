@@ -9,7 +9,7 @@ $(document).on('ready', function(){
    console.log("Got to search.js on Ready function");
 
 $('#submitbutton').on('click', function(e){
-    e.preventDefault();
+      e.preventDefault();
     
   console.log("Got to search.js submit button");
   
@@ -92,6 +92,11 @@ $('#submitbutton').on('click', function(e){
 
 // Handle Details views 
 
+  // $('#finishdetails').on('click', function(e){
+  //   e.preventDefault();
 
+  //   console.log("Finished details button");
+   
+  // });
 
 }); // End document on Ready from Top

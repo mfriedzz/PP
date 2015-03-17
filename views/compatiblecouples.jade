@@ -4,21 +4,33 @@ block content
   
   .row
     .col-md-6.coupleprofile
+      
           aside
-            h2.profile Your Couple's Profile:
-            h3.profilename Logged In Couple's Name & Email:
-            h4 #{user.username}
-            h4 #{user.contact.name.firstName} 
-            h4(id=useremail) #{user.email}
-            h3.profilestatistics Profile Statistics:
-            h3.profilepictures  Your Couple's Pictures: 
-       
+            .calendar
+                //- script(type='text/javascript', src="http://code.jquery.com/jquery-1.9.1.min.js")
+             script(src="/js/jquery1.5.1.js")
+              //- script
+                $(document).ready(function(){ $(".calendar").oCalendar({width: 500, height:650, useAbbr: true})})
+
+            h2.profilestylestyle(style={color: 'black', background: 'green'}) Your Couple's Profile:
+            h3.profilename(style={color: 'black', background: 'red'}) Logged In Couple's Name & Email:
+            //- h5 #{user.username}
+            h5(style={color: 'black', background: '#ADD8E6'}) Michael Friedman
+            h5(style={color: 'black', background: '#ADD8E6'}) Katherine Friedman
+            h5 #{user.contact.name.firstName} 
+            h5(style={color: 'black', background: '#ADD8E6'}) E-mail: #{user.email}
+            h3.profilestatistics(style={color: 'black', background: 'red'}) Profile Statistics:
+            h3.profilepictures(style={color: 'black', background: 'red'})  Your Couple's Pictures:
+            br
+            img(src='http://images4.fanpop.com/image/photos/16100000/O-Conell-and-Evey-movie-couples-16197664-1780-1167.jpg', width="30%", height='146px' alt='First slide')
+            img(src='http://images.idiva.com/media/photogallery/2012/Jan/happy_couple.jpg' width='30%', height='146px', alt='second slide')
+            img(src='http://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/articles/health_tools/infertility_treatments_slideshow/getty_rf_photo_of_couple_kayaking.jpg', width='30%', height='146px' alt='third slide')
         .col-md-6.couplessearch
-          h2(style='color:#000000') Compatible Couples Search Criteria:
+          h2(style={color: 'black', background: 'green'}) Compatible Couples Search Criteria:
 
           form.search
             label
-              | Age Range Min Age: 
+              |               Age Range Min Age: 
               input#minage(type='number', name='minage', value='18', min='18', max='115')
               br
               |               Age Range Max Age: 
