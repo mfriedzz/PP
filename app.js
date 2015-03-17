@@ -103,7 +103,8 @@ app.get('/compatiblecouples', searchController.renderPage);
 
 // app.get('/compatiblecouples', searchController.renderPage);
 app.post('/compatiblecouples/search', searchController.search);
-app.get('/compatiblecouplesearchresult/:id', searchController.viewCoupleDetails);
+app.get('/compatiblecouplesearchdetails/:id', searchController.viewCoupleDetails);
+app.get('/compatiblecouplessearchdetails/:id', searchController.viewChildren);
 //app.get('/compatiblecouplesdetails/:id', searchController.viewCoupleDetails);
 
 //app.get('/deleteApplicant/:id', indexController.deleteApplicant);

@@ -1,0 +1,59 @@
+extends _layout
+
+block content
+	
+.row
+	h1 Purple People
+
+		.panel.panel-default
+			.panel-heading Panel Heading
+				.panel-body
+
+	.col-md-6.col-md-6.vitalstats
+			aside
+				h1 Vital Statistics	
+				p.result.contact.name.firstName
+					h2.lengthtogether How Long Together?
+
+					h2.whereeachfrom Where are each of you from?
+
+					h2.howlonginarea How long in the Area?
+
+					h2.careerpartner1 Career for Partner # 1
+
+					h2.careerpartner2 Career for Partner # 2		
+				
+				h2 Children(If Any) details
+				ul#children-list
+				for child in children-list
+					li.Name Name
+					li.Age Age
+					li.Sex Sex
+					li.other details
+
+	input(type='checkbox', checked=false, id="selectcouple")
+
+		.col-md-6.col-md-6.couplelikes
+			//- couple picture 1 couple picture 2 couple picture3
+			form.likesanddislikes
+				label
+					h1 Couples Likes Dislikes & Interests:
+
+						h3.couplelikes Likes:
+
+						h3.coupledislikes  Dislikes:
+
+						h3.coupleinterests Interests:
+
+button.btn(data-action="bea") Finished Reviewing Couple Details
+
+
+
+
+
+
+//- return  $('.couplesearchresults').append( "<a href='/compatiblecouplesdetails" + result._id + " 
+	' class='searchresults' class='expand'>" 
+//-                       + '<li>' + result.contact.name.firstName + result.contact.name.lastName + 
+//-                       result.contact.details.hasChildren + result.contact.pets.pets  + result.contact.details.militaryService +
+//-                       result.contact.age.age + result.coupledWith.coupleId + '<li>' + '</a>');

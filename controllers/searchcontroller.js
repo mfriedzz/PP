@@ -154,17 +154,38 @@ var searchController = {
 		{
 
 			
-		var viewid = req.params.id;
-		console.log("View ID from searchController view", viewid);
-		Person.findById(viewid, function(err, result){
-			
-			res.render('compatiblecouplesearchresult', result);
-			// res.send(result);	
-			//res.redirect('/compatiblecouplesearchresult');	
-		});
+			var viewid = req.params.id;
+			console.log("View ID from searchController view", viewid);
+			Person.findById(viewid, function(err, result){
+				
+				res.render('compatiblecouplesearchresult', result);
+				// res.send(result);	
+				//res.redirect('/compatiblecouplesearchresult');	
+			});
 			//  oldres.render('compatiblecouplesearchresult');
 
-		} // end of viewCoupleDetails
+		}, // end of viewCoupleDetails
+
+	viewChildren: function(req,res)
+		{
+		var viewid = req.params.id;
+		console.log("View ID from searchController children", viewid);
+		// var childCoupleId = this.
+		// if 
+		Person.find(viewid, function(err, result)
+			{
+			
+			res.render('compatiblecouplessearchdetails/children',
+					{
+						children: result
+					});
+			
+			// res.send(result);	
+			//res.redirect('/compatiblecouplesearchresult');	
+			});
+			//  oldres.render('compatiblecouplesearchresult');
+
+		} // end of viewChildren
 	
 	};  // end of searchController
 	

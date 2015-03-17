@@ -72,18 +72,19 @@ $('#submitbutton').on('click', function(e){
          var mappedResults = dataFromServer.map(function (result)
                  { 
                     
-         return  $('.couplesearchresults').append("<li>" + "<a href='/compatiblecouplesearchresult/" + result._id + "'>" + result.contact.name.firstName + result.contact.name.lastName + 
+         return  $('.couplesearchresults').append("<li>" + "<a href='/compatiblecouplesearchdetails/" + result._id + "'>" + result.contact.name.firstName + result.contact.name.lastName + 
                       result.contact.details.hasChildren + result.contact.pets.pets  + result.contact.details.militaryService +
-                      result.contact.age.age + result.coupledWith.coupleId + '</a>' + "</li>");
-
-                                        
-                  }); // end of result  
-
+                      result.contact.age.age + result.coupledWith.coupleId + '</a>' + "</li>");                       
+                  }); // end of  mapped result  
 
             
       }); // end of post for search
+    // $.post('compatiblecouplessearchdetails', function( dataFromServer)
+    //   {
 
-    
+    //   }); // end of post for couples children search
+
+   
     
 
 }); // end Search Submit function
