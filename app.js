@@ -8,7 +8,7 @@ var __ = require("underscore");
 
 // Mongoose
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/purple-people');
+mongoose.connect(process.env.MONGOLAB_URI ||'mongodb://localhost/purple-people');
 
 // Express Session allows us to use Cookies to keep track of
 // a user across multiple pages. We also need to be able to load
