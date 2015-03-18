@@ -154,7 +154,7 @@ app.post('/contact', function (req, res) {
 
 
 // api routes
-
-var server = app.listen(4167, function() {
+var port = process.env.PORT||4167;
+var server = app.listen(port, function() {
 	console.log('Express server listening on port ' + server.address().port);
 });
