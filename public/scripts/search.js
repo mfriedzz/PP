@@ -78,10 +78,13 @@ $('#submitbutton').on('click', function(e){
    //                    result.contact.details.hasChildren + result.contact.pets.pets  + result.contact.details.militaryService +
    //                    result.contact.age.age + result.coupledWith.coupleId + '</a>' + "</li>");   
 
-          $('.couplesearchresults').append("<li>" + "<a href='/compatiblecouplesearchdetails/" + result._id + "'>" 
-              + result.contact.name.firstName + result.contact.name.lastName  + '</a>' + "</li>");                       
+          // $('.couplesearchresults').append("<li>" + "<a href='/compatiblecouplesearchdetails/" + result._id + "'>" 
+          //     + result.contact.name.firstName + result.contact.name.lastName  + '</a>' + "</li>");                       
                 
-                
+            $('.couplesearchresults').append("<li>" 
+            + "<a href='/compatiblecouplesearchdetails/" + result._id + "'>" 
+              + result.contact.name.firstName + result.contact.name.lastName  + '</a>' + "</li>");
+
               if (flag == false)
                 {   
                   dataFromServer.coupleResults.map(function (result)
