@@ -1,98 +1,98 @@
 extends _layout
 
 block content	
-	.container
-		h1 Search Results
-		//- p: a(href="/") 
-		ul#searchresult.list-unstyled
-			
-			li Partner Number 1 Name: #{contact.name.firstName } #{contact.name.lastName }
-			li Partner Number 2 name: Katherine Friedman
-				li Age: #{contact.age.age}
-				li Have Children: #{contact.details.hasChildren}
-				li Have Pets: #{contact.pets.pets}
-				li Served in Military: #{contact.details.militaryService}									
-				
-			.row
-				
-				.panel.panel-default
-						.panel-heading Couple's Details
-							.panel-body
-				form#coupledetailsresults
-					.col-md-6.col-md-6.vitalstats
-							aside
-								h2(style={color: 'black', background: 'green'}) <strong>Vital Statistics</strong>	
-								p
-									input#coupleid(type="hidden", value='#{id}')
-									h3.lengthtogether(style={color: 'black', background: '#ADD8E6'}) How Long Together?
-										h4 10 Years
-									h3.whereeachfromstyle(style={color: 'black', background: '#ADD8E6'}) Where are each of you from?
-										h4 Michael Friedman - Oak Bluffs, MA 02557
-										br
-										h4  Katherine Reardon Friedman - Worcester, MA 02132
+			//- .container
+			//- 	h1 Search Results
+			//- 	//- p: a(href="/") 
+			//- 	ul#searchresult.list-unstyled
+					
+			//- 		li Partner Number 1 Name: #{contact.name.firstName } #{contact.name.lastName }
+			//- 		li Partner Number 2 name: Katherine Friedman
+			//- 			li Age: #{contact.age.age}
+			//- 			li Have Children: #{contact.details.hasChildren}
+			//- 			li Have Pets: #{contact.pets.pets}
+			//- 			li Served in Military: #{contact.details.militaryService}									
+						
+	.row
+		
+		.panel.panel-default
+				.panel-heading Couple's Details
+					.panel-body
+		form#coupledetailsresults
+			.col-md-6.col-md-6.vitalstats
+					aside
+						h2(style={color: 'black', background: 'green'}) <strong>Vital Statistics</strong>	
+						p
+							input#coupleid(type="hidden", value='#{id}')
+							h3.lengthtogether(style={color: 'black', background: '#ADD8E6'}) How Long Together?
+								h4 10 Years
+							h3.whereeachfromstyle(style={color: 'black', background: '#ADD8E6'}) Where are each of you from?
+								h4 Michael Friedman - Oak Bluffs, MA 02557
+								br
+								h4  Katherine Reardon Friedman - Worcester, MA 02132
 
-									h3.howlonginareastyle(style={color: 'black', background: '#ADD8E6'}) How long in the Area?
-										h4 10 years
-									h3.careerpartner1style(style={color: 'black', background: '#ADD8E6'}) Career for #{contact.name.firstName } #{contact.name.lastName }
-										h4 Web Developer
-									h3.careerpartner2(style={color: 'black', background: '#ADD8E6'}) Career for Katherine Friedman
-										h4 Nurse Practioner	
-								
-								h2.children(style={color: 'black', background: 'green'})  Children(If Any) details:
+							h3.howlonginareastyle(style={color: 'black', background: '#ADD8E6'}) How long in the Area?
+								h4 10 years
+							h3.careerpartner1style(style={color: 'black', background: '#ADD8E6'}) Career for #{contact.name.firstName } #{contact.name.lastName }
+								h4 Web Developer
+							h3.careerpartner2(style={color: 'black', background: '#ADD8E6'}) Career for Katherine Friedman
+								h4 Nurse Practioner	
+						
+						h2.children(style={color: 'black', background: 'green'})  Children(If Any) details:
 
 
-								h4 Zachary Luke Friedman 
-									h4 3 Years old 
-									h4 Male 
-									h4 likes Ice Cream Avengers Iron Man
-								img(src='/pics/zack.jpg' width='30%', height='146px', alt='second slide')
-								//- ul#children-list
-								//- for child in children-list
-								//- 	li.Name Name
-								//- 	li.Age Age
-								//- 	li.Sex Sex
-								//- 	li.other details
+						h4 Zachary Luke Friedman 
+							h4 3 Years old 
+							h4 Male 
+							h4 likes Ice Cream Avengers Iron Man
+						img(src='/pics/zack.jpg' width='30%', height='146px', alt='second slide')
+						//- ul#children-list
+						//- for child in children-list
+						//- 	li.Name Name
+						//- 	li.Age Age
+						//- 	li.Sex Sex
+						//- 	li.other details
+						br
+						br
+						br
+					
+						<input id="selectedcouple" type="checkbox"> Click Here to Select This Couple
+
+
+
+						
+				.col-md-6.col-md-6.couplelikes
+
+					//- couple picture 1 couple picture 2 couple picture3
+
+					img(src='http://images4.fanpop.com/image/photos/16100000/O-Conell-and-Evey-movie-couples-16197664-1780-1167.jpg', width="30%", height='146px' alt='First slide')
+					img(src='http://images.idiva.com/media/photogallery/2012/Jan/happy_couple.jpg' width='30%', height='146px', alt='second slide')
+					img(src='http://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/articles/health_tools/infertility_treatments_slideshow/getty_rf_photo_of_couple_kayaking.jpg', width='30%', height='146px' alt='third slide')
+					br
+
+					<form>
+					form.likesanddislikes
+						label
+							h2(style={color: 'black', background: 'green'}) <strong>Couples Likes Dislikes & Interests:</strong>
+								br
+								h3.couplelikes(style={color: 'black', background: '#ADD8E6'}) Likes: 
+									h4 Biking, Fishing, Board Games, Going to Movies
+								br
+								h3.coupledislikes(style={color: 'black', background: '#ADD8E6'})  Dislikes:
+									h4 Mean People, Fast Talkers, Cats
+								br
+								h3.coupleinterests(style={color: 'black', background: '#ADD8E6'}) Interests:
+									h4 Post Stamp Collector, wine taster
 								br
 								br
 								br
-							
-								<input id="selectedcouple" type="checkbox"> Click Here to Select This Couple
-
-
-
-								
-						.col-md-6.col-md-6.couplelikes
-
-							//- couple picture 1 couple picture 2 couple picture3
-
-							img(src='http://images4.fanpop.com/image/photos/16100000/O-Conell-and-Evey-movie-couples-16197664-1780-1167.jpg', width="30%", height='146px' alt='First slide')
-							img(src='http://images.idiva.com/media/photogallery/2012/Jan/happy_couple.jpg' width='30%', height='146px', alt='second slide')
-							img(src='http://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/articles/health_tools/infertility_treatments_slideshow/getty_rf_photo_of_couple_kayaking.jpg', width='30%', height='146px' alt='third slide')
-							br
-
-							<form>
-							form.likesanddislikes
-								label
-									h2(style={color: 'black', background: 'green'}) <strong>Couples Likes Dislikes & Interests:</strong>
-										br
-										h3.couplelikes(style={color: 'black', background: '#ADD8E6'}) Likes: 
-											h4 Biking, Fishing, Board Games, Going to Movies
-										br
-										h3.coupledislikes(style={color: 'black', background: '#ADD8E6'})  Dislikes:
-											h4 Mean People, Fast Talkers, Cats
-										br
-										h3.coupleinterests(style={color: 'black', background: '#ADD8E6'}) Interests:
-											h4 Post Stamp Collector, wine taster
-										br
-										br
-										br
-							</form>
-							br
-							br
-							br 
-							br
-							br
-							br
-							//- input#finishdetails(href='/compatiblecouples',type="button", name='finishdetails', value='Finished Reviewing Couple Details')
-							a.btn.btn-default(href='/compatiblecouples', role='button') Finished Reviewing Couple Details
-				
+					</form>
+					br
+					br
+					br 
+					br
+					br
+					br
+					//- input#finishdetails(href='/compatiblecouples',type="button", name='finishdetails', value='Finished Reviewing Couple Details')
+					a.btn.btn-default(href='/compatiblecouples', role='button') Finished Reviewing Couple Details
+		
