@@ -23,6 +23,7 @@ block content
 							aside
 								h2(style={color: 'black', background: 'green'}) <strong>Vital Statistics</strong>	
 								p
+									input#coupleid(type="hidden", value='#{id}')
 									h3.lengthtogether(style={color: 'black', background: '#ADD8E6'}) How Long Together?
 										h4 10 Years
 									h3.whereeachfromstyle(style={color: 'black', background: '#ADD8E6'}) Where are each of you from?
@@ -55,7 +56,7 @@ block content
 								br
 								br
 							
-								<input type="checkbox"> Click Here to Select This Couple
+								<input id="selectedcouple" type="checkbox"> Click Here to Select This Couple
 
 
 
@@ -92,5 +93,6 @@ block content
 							br
 							br
 							br
-						input#finishdetails(type="button", name='finishdetails', value='Finished Reviewing Couple Details')
-				//- button.btn(data-action="bea") Finished Reviewing Couple Details
+							//- input#finishdetails(href='/compatiblecouples',type="button", name='finishdetails', value='Finished Reviewing Couple Details')
+							a.btn.btn-default(href='/compatiblecouples', role='button') Finished Reviewing Couple Details
+				

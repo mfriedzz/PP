@@ -107,7 +107,7 @@ var searchController = {
 									 		if ( 	(person.contact.age.age >= searchCriteria.minAge) && 
 									 				(person.contact.age.age <= searchCriteria.maxAge))
 									 			{
-									 				 matchedOnAge =  "contact.age.age" + " Age Matched Range between " 
+									 				 matchedOnAge =  " Age Matched Range between " 
 									 				 	+ searchCriteria.minAge + " and " + searchCriteria.maxAge;
 									 				 flag = true;
 									 			}
@@ -115,7 +115,7 @@ var searchController = {
 									 		if (flag = true) {
 
 
-									 		coupleResults.push({firstname: person.contact.name.firstName,
+									 		coupleResults.push({firstName: person.contact.name.firstName,
 									 							lastName: person.contact.name.lastName,
 									 		 					coupleId: person.coupledWith.coupleId,
 									 		 					uniqueId: person._id,
@@ -131,14 +131,15 @@ var searchController = {
 									 						} // end of if flag check
 									 		
 									 }); // end coupleResultsTemp map function
-
-									console.log("Couples Matched on: ", coupleResults);
+										// coupleResults = coupleResults.filter(function(n){ return n != undefined });
+									// console.log("Couples Matched on: ", coupleResults);
+									// console.log("Couples Matched without Undefined: ", coupleResults);
 			
-										
-										res.send(results);
+										// res.send(results);
+										res.send({results:results, coupleResults:coupleResults});
 							
 								
-								} // end of if else 
+								} // end of if else  function
 								
 							} //end of function
 
@@ -188,9 +189,17 @@ var searchController = {
 		}, // end of viewChildren
 	coupleMeetUp: function(req,res)
 		{
-			res.render('coupleMeetUp')
+				res.render('couplemeetup');
+			// res.render('couplemeetup', {
+			// 	id:req.params.id
+			// });
       								
-		} //end of coupleMeetUp
+		}, //end of coupleMeetUp
+
+	selectedCouple: function(req,res)
+			{
+				console.log("selected couple req.query id ", req.params.id);
+			}
 	
 	};  // end of searchController
 	

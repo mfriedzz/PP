@@ -58,7 +58,7 @@ $('#submitbutton').on('click', function(e){
   //              searchCriteria.children, searchCriteria.pets, searchCriteria.military);
 
     $.post('/compatiblecouples/search', searchCriteria, 
-            function(dataFromServer, status, jXHR){
+            function(dataFromServer){
      
       // Jquery for Post
 
@@ -69,15 +69,49 @@ $('#submitbutton').on('click', function(e){
          
          $(".couplesearchresults").empty();
           
-         var mappedResults = dataFromServer.map(function (result)
+         var mappedResultspuredata = dataFromServer.results.map(function (result)
                  { 
-                    
-         return  $('.couplesearchresults').append("<li>" + "<a href='/compatiblecouplesearchdetails/" + result._id + "'>" + result.contact.name.firstName + result.contact.name.lastName + 
-                      result.contact.details.hasChildren + result.contact.pets.pets  + result.contact.details.militaryService +
-                      result.contact.age.age + result.coupledWith.coupleId + '</a>' + "</li>");                       
-                  }); // end of  mapped result  
+                  var flag = false;
+   
+   // original map command
+   // $('.couplesearchresults').append("<li>" + "<a href='/compatiblecouplesearchdetails/" + result._id + "'>" + result.contact.name.firstName + result.contact.name.lastName + 
+   //                    result.contact.details.hasChildren + result.contact.pets.pets  + result.contact.details.militaryService +
+   //                    result.contact.age.age + result.coupledWith.coupleId + '</a>' + "</li>");   
 
-            
+          $('.couplesearchresults').append("<li>" + "<a href='/compatiblecouplesearchdetails/" + result._id + "'>" 
+              + result.contact.name.firstName + result.contact.name.lastName  + '</a>' + "</li>");                       
+                
+                
+              if (flag == false)
+                {   
+                  dataFromServer.coupleResults.map(function (result)
+                     { 
+                          // $('.couplesearchresults').append([coupleResults]);
+                            $('.couplesearchresults').append( 
+                              result.matchedOn.matchChild + result.matchedOn.matchPets + result.matchedOn.matchMilitary 
+                            + result.matchedOn.matchAge + result.matchedOn.MatchState + result.matchedOn.Distance );  
+                            flag = true;                     
+                     }) // end of  mapped result how matched
+                } // end if flag
+
+
+                  }); // end of  mapped result   pure data
+
+
+          
+
+// firstname: person.contact.name.firstName,
+//                                 lastName: person.contact.name.lastName,
+//                                 coupleId: person.coupledWith.coupleId,
+//                                 uniqueId: person._id,
+//                                 matchedOn : {
+//                                         matchChild:   matchedOnChildren,
+//                                         matchPets:    matchedOnPets,
+//                                         matchMilitary:  matchedOnMilitary, 
+//                                         matchAge:       matchedOnAge,
+//                                         matchState:     person.contact.addresses.home.homeState,
+//                                         matchDistance:  searchCriteria.distance 
+//                                       }
       }); // end of post for search
     // $.post('compatiblecouplessearchdetails', function( dataFromServer)
     //   {
@@ -91,18 +125,42 @@ $('#submitbutton').on('click', function(e){
 
 
 // Handle Details views 
+    
+   
+    $('#selectedcouple').change(function(e) 
+    {
+      // State has changed to checked/unchecked.
+       e.preventDefault();
+       if ($(this).is(':checked'))
+         {
 
+           $.post('/compatiblecouples/' + ($('#coupleid').val()), 
+                function(data)
+                {
+
+                    console.log("Clicked");
+                })
+        }
+
+    });
+
+  // });
   $('#finishdetails').on('click', function(e){
     e.preventDefault();
 
-    console.log("Finished details button");
+    console.log("Finished details");
+    
    
   });
     
 // Handle Couple Meetup Button Clicked
-    $('#wheretomeet').on('click', function(e){
-      e.preventDefault();
+    // $('#wheretomeet').on('click', function(e){
+    //   e.preventDefault();
+    //   $.get('/couplemeetup', function(data){
+    //       alert("where to meet", data);
+    //   });
+    //     // $.post('/couplemeetup)
 
-      });
+    //   });
 
 }); // End document on Ready from Top
