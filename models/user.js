@@ -12,8 +12,8 @@ var userSchema = mongoose.Schema({
  // Password Fields 
   username:       {
                     type: String,
-                    required: true,
-                    unique: true
+                    required: false,
+                    unique: false
                   },
 
   email:          {
@@ -24,7 +24,7 @@ var userSchema = mongoose.Schema({
 
   password:       {
                     type: String,
-                    required: true
+                    required: false
                   },
 
 // Data Fields
