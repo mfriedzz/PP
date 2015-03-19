@@ -2,20 +2,9 @@ extends _layout
 
 block content  
   .row
-     #calendar
-    col-md-6.coupleprofile
-       
+    .col-md-6.coupleprofile
           aside         
-              //- script(type='text/javascript', src="http://code.jquery.com/jquery-1.9.1.min.js")
-              script(src="/js/jquery1.5.1.js")
-              //- script.
-                //- | $(&quot;#calendar&quot;).oCalendar({
-                //-   | width: 900,
-                //-   | height:650,
-                //-   | startDay:1 //0 for the Monday (default)
-                //-   | });
-              script.
-                $(document).ready(function(){ $("#calendar").oCalendar({width: 500, height:650, useAbbr: true})})
+              
             h2.profilestylestyle(style={color: 'black', background: 'green'}) Your Couple's Profile:
             h3.profilename(style={color: 'black', background: 'red'}) Logged In Couple's Name & Email:
             //- h5 #{user.username}
@@ -36,9 +25,12 @@ block content
             a.btn.btn-default(href='/couplemeetup', role='button') Where to Meet Selected Couple
            
             
-        .col-md-6.couplessearch
+    .col-md-6.couplessearch
           h2(style={color: 'black', background: 'green'}) Compatible Couples Search Criteria:
-
+          .calendar
+                script(src="/js/jquery1.5.1.js")
+                script.
+                      $(document).ready(function(){ $(".calendar").oCalendar({width: 0, height: 0, useAbbr: true})})
           form.search
             label
               |               Age Range Min Age: 
