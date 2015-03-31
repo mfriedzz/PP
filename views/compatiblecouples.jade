@@ -2,20 +2,34 @@ extends _layout
 
 block content  
   .row
-     #calendar
-    col-md-6.coupleprofile
+      #calendar
+    .col-md-6.coupleprofile
        
-          aside         
-              //- script(type='text/javascript', src="http://code.jquery.com/jquery-1.9.1.min.js")
-              script(src="/js/jquery1.5.1.js")
+          aside 
+              script(type='text/javascript', src='js/jquery1.5.1.js')
+              script(type='text/javascript', src='js/en.js')
+              script(type='text/javascript', src='js/oCalendar.js')
+              link(rel='stylesheet', type='text/css', href='css/limeGreen.css')
+              //- script(type='text/javascript', src='js/jquery1.5.1.js')
+              //- script(type='text/javascript', src='js/en.js')
+              //- script(type='text/javascript', src='js/oCalendar.js')
+              //-   link(rel='stylesheet', type='text/css', href='css/limeGreen.css')        
+              //- script(type='text/javascript', src="http://code.jquery.com/jquery-2.1.3.min.js")
+              //- script(src="/js/jquery1.5.1.js")
               //- script.
                 //- | $(&quot;#calendar&quot;).oCalendar({
                 //-   | width: 900,
                 //-   | height:650,
                 //-   | startDay:1 //0 for the Monday (default)
                 //-   | });
+              
               script.
-                $(document).ready(function(){ $("#calendar").oCalendar({width: 500, height:650, useAbbr: true})})
+             
+                //- $("#calendar").oCalendar();
+                //- $(document).ready(function(){ $("#calendar").oCalendar({width: 500, height:650, useAbbr: true})})
+                $(document).ready(function(){ $("#calendar").oCalendar({width: 450 , height: 0, useAbbr: true})})
+                 //- $(document).ready(function(){ $("#calendar").oCalendar()})
+              br
             h2.profilestylestyle(style={color: 'black', background: 'green'}) Your Couple's Profile:
             h3.profilename(style={color: 'black', background: 'red'}) Logged In Couple's Name & Email:
             //- h5 #{user.username}
@@ -37,6 +51,7 @@ block content
            
             
         .col-md-6.couplessearch
+          br
           h2(style={color: 'black', background: 'green'}) Compatible Couples Search Criteria:
 
           form.search
