@@ -68,7 +68,7 @@ $('#submitbutton').on('click', function(e){
 
          
          $(".couplesearchresults").empty();
-          
+         
          var mappedResultspuredata = dataFromServer.results.map(function (result)
                  { 
                   var flag = false;
@@ -80,24 +80,25 @@ $('#submitbutton').on('click', function(e){
 
           // $('.couplesearchresults').append("<li>" + "<a href='/compatiblecouplesearchdetails/" + result._id + "'>" 
           //     + result.contact.name.firstName + result.contact.name.lastName  + '</a>' + "</li>");                       
-                
+           // $('.couplesearchresults').text("Couple: ");            
             $('.couplesearchresults').append("<li>" 
             + "<a href='/compatiblecouplesearchdetails/" + result._id + "'>" 
               + result.contact.name.firstName + result.contact.name.lastName  + '</a>' + "</li>");
 
-              if (flag == false)
-                {   
+             
+                
                   dataFromServer.coupleResults.map(function (result)
                      { 
+                      if (flag == false)
+                      {
                           // $('.couplesearchresults').append([coupleResults]);
                             $('.couplesearchresults').append( 
                               result.matchedOn.matchChild + result.matchedOn.matchPets + result.matchedOn.matchMilitary 
                             + result.matchedOn.matchAge + result.matchedOn.MatchState + result.matchedOn.Distance );  
-                            flag = true;                     
+                            flag = true;  
+                      } // end of if flag                  
                      }) // end of  mapped result how matched
-                } // end if flag
-
-
+                  
                   }); // end of  mapped result   pure data
 
 

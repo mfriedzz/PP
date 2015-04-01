@@ -30,11 +30,16 @@ block content
                 $(document).ready(function(){ $("#calendar").oCalendar({width: 450 , height: 0, useAbbr: true})})
                  //- $(document).ready(function(){ $("#calendar").oCalendar()})
               br
+=======
+    .col-md-6.coupleprofile
+          aside         
+              
+>>>>>>> b0da78c8f24b8fa2eaf6a121d57e4ab103f6ef40
             h2.profilestylestyle(style={color: 'black', background: 'green'}) Your Couple's Profile:
             h3.profilename(style={color: 'black', background: 'red'}) Logged In Couple's Name & Email:
-            //- h5 {user.username}
-            h5(style={color: 'black', background: '#ADD8E6'}) #{user.username}
-            h5(style={color: 'black', background: '#ADD8E6'}) Katherine Friedman #{user}
+            //- h5 #{user.username}
+            h5(style={color: 'black', background: '#ADD8E6'}) Michael Friedman
+            h5(style={color: 'black', background: '#ADD8E6'}) Katherine Friedman
             h5 #{user.contact.name.firstName} 
             h5(style={color: 'black', background: '#ADD8E6'}) E-mail: #{user.email}
             h3.profilestatistics(style={color: 'black', background: 'red'}) Profile Statistics:
@@ -50,10 +55,17 @@ block content
             a.btn.btn-default(href='/couplemeetup', role='button') Where to Meet Selected Couple
            
             
+<<<<<<< HEAD
         .col-md-6.couplessearch
           br
+=======
+    .col-md-6.couplessearch
+>>>>>>> b0da78c8f24b8fa2eaf6a121d57e4ab103f6ef40
           h2(style={color: 'black', background: 'green'}) Compatible Couples Search Criteria:
-
+          .calendar
+                script(src="/js/jquery1.5.1.js")
+                script.
+                      $(document).ready(function(){ $(".calendar").oCalendar({width: 0, height: 0, useAbbr: true})})
           form.search
             label
               |               Age Range Min Age: 
@@ -212,7 +224,7 @@ block content
                 
               input#submitbutton(type="button", name='submitform', value='Search')
 
-            h3(style='color:#000000')  Couple Search Results: 
+            h3(style='color:#000000')  Couple Search Results 
             .couplesearchresults
                             h4 Matched on:
         
