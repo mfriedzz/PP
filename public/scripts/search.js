@@ -69,7 +69,7 @@ $('#submitbutton').on('click', function(e){
          
          $(".couplesearchresults").empty();
          
-         var mappedResultspuredata = dataFromServer.results.map(function (result)
+         var mappedResultspuredata = dataFromServer.results.map(function (result1)
                  { 
                   var flag = false;
    
@@ -82,21 +82,25 @@ $('#submitbutton').on('click', function(e){
           //     + result.contact.name.firstName + result.contact.name.lastName  + '</a>' + "</li>");                       
            // $('.couplesearchresults').text("Couple: ");            
             $('.couplesearchresults').append("<li>" 
-            + "<a href='/compatiblecouplesearchdetails/" + result._id + "'>" 
-              + result.contact.name.firstName + result.contact.name.lastName  + '</a>' + "</li>");
+            + "<a href='/compatiblecouplesearchdetails/" + result1._id + "'>" 
+              + result1.contact.name.firstName + result1.contact.name.lastName  + '</a>' + "</li>");
 
              
                 
-                  dataFromServer.coupleResults.map(function (result)
+                  dataFromServer.coupleResults.map(function (result2)
                      { 
-                      if (flag == false)
+                      if (flag == false) //&& ( result2.coupledWith.coupleId == result1.coupledWith.coupleId))
                       {
                           // $('.couplesearchresults').append([coupleResults]);
                             $('.couplesearchresults').append( 
-                              result.matchedOn.matchChild + result.matchedOn.matchPets + result.matchedOn.matchMilitary 
-                            + result.matchedOn.matchAge + result.matchedOn.MatchState + result.matchedOn.Distance );  
+                              result2.matchedOn.matchChild + result2.matchedOn.matchPets + result2.matchedOn.matchMilitary 
+                            + result2.matchedOn.matchAge + result2.matchedOn.MatchState + result2.matchedOn.Distance );  
                             flag = true;  
-                      } // end of if flag                  
+                      } //else
+                      // {
+                      //     $('.couplesearchresults').append("<li>" 
+                      //     + result1.contact.name.firstName + result1.contact.name.lastName  + "</li>");
+                      // } // end of if  else flag                  
                      }) // end of  mapped result how matched
                   
                   }); // end of  mapped result   pure data
