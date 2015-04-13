@@ -71,12 +71,15 @@ Person.find({}, function(err, documents){
 									}, // addresses end
 
 					details: {			
-
+										howLongTogether: 10,
 										hasChildren:true,
 										numberOfChildren: 1,
 										militaryService: 'false',
 										militaryDetails: "   ",
 										allowCoriCheck: 'true',
+										couplePic1: 'http://images4.fanpop.com/image/photos/16100000/O-Conell-and-Evey-movie-couples-16197664-1780-1167.jpg',
+                        				couplePic2: 'http://images.idiva.com/media/photogallery/2012/Jan/happy_couple.jpg',
+                        				couplePic3: 'http://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/articles/health_tools/infertility_treatments_slideshow/getty_rf_photo_of_couple_kayaking.jpg',
 										activities: []
 							 },
 
@@ -86,6 +89,8 @@ Person.find({}, function(err, documents){
 												childLikes: [],
 												childParent1: null,
 												childParent2: null,
+												childpic1: null,
+                        						childpic2: null
 							  },
 
 					pets: {				
@@ -170,12 +175,15 @@ var person2 = new Person({
 									}, // addresses end
 
 					details: {			
-										
+										howLongTogether: 10,
 										hasChildren:true,
 										numberOfChildren: 1,
 										militaryService: 'false',
 										militaryDetails: [],
 										allowCoriCheck: 'true',
+										couplePic1: 'http://images4.fanpop.com/image/photos/16100000/O-Conell-and-Evey-movie-couples-16197664-1780-1167.jpg',
+                        				couplePic2: 'http://images.idiva.com/media/photogallery/2012/Jan/happy_couple.jpg',
+                        				couplePic3: 'http://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/articles/health_tools/infertility_treatments_slideshow/getty_rf_photo_of_couple_kayaking.jpg',
 										activities: []
 							 },
 
@@ -185,6 +193,8 @@ var person2 = new Person({
 												childLikes: [],
 												childParent1: null,
 												childParent2: null,
+												childpic1: null,
+                        						childpic2: null
 									},
 
 					pets: {				
@@ -267,12 +277,15 @@ var person3 = new Person({
 									}, // addresses end
 
 					details: {			
-										
+										howLongTogether: 5,
 										hasChildren:false,
 										numberOfChildren: 0,
 										militaryService: 'false',
 										militaryDetails: [],
 										allowCoriCheck: 'true',
+										couplePic1: 'http://images4.fanpop.com/image/photos/16100000/O-Conell-and-Evey-movie-couples-16197664-1780-1167.jpg',
+                        				couplePic2: 'http://images.idiva.com/media/photogallery/2012/Jan/happy_couple.jpg',
+                        				couplePic3: 'http://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/articles/health_tools/infertility_treatments_slideshow/getty_rf_photo_of_couple_kayaking.jpg',
 										activities: []
 							 },
 
@@ -282,6 +295,8 @@ var person3 = new Person({
 												childLikes: [],
 												childParent1: null,
 												childParent2: null,
+												childpic1: null,
+                        						childpic2: null
 									},
 
 					pets: {				
@@ -366,12 +381,15 @@ var person3 = new Person({
 									}, // addresses end
 
 					details: {			
-										
+										howLongTogether: 5,
 										hasChildren:false,
 										numberOfChildren: 0,
 										militaryService: false,
 										militaryDetails: [],
 										allowCoriCheck: true,
+										couplePic1: 'http://images4.fanpop.com/image/photos/16100000/O-Conell-and-Evey-movie-couples-16197664-1780-1167.jpg',
+                        				couplePic2: 'http://images.idiva.com/media/photogallery/2012/Jan/happy_couple.jpg',
+                        				couplePic3: 'http://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/articles/health_tools/infertility_treatments_slideshow/getty_rf_photo_of_couple_kayaking.jpg',
 										activities: []
 							 },
 
@@ -381,6 +399,8 @@ var person3 = new Person({
 												childLikes: [],
 												childParent1: null,
 												childParent2: null,
+												childpic1: null,
+                        						childpic2: null
 									},
 
 					pets: {				
@@ -465,12 +485,15 @@ var person5 = new Person({
 									}, // addresses end
 
 					details: {			
-										
+										howLongTogether: 3,
 										hasChildren: false,
 										numberOfChildren: 0,
 										militaryService: false,
 										militaryDetails: [],
 										allowCoriCheck: true,
+										couplePic1: 'http://images4.fanpop.com/image/photos/16100000/O-Conell-and-Evey-movie-couples-16197664-1780-1167.jpg',
+                        				couplePic2: 'http://images.idiva.com/media/photogallery/2012/Jan/happy_couple.jpg',
+                        				couplePic3: 'http://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/articles/health_tools/infertility_treatments_slideshow/getty_rf_photo_of_couple_kayaking.jpg',
 										activities: []
 							 },
 
@@ -480,6 +503,8 @@ var person5 = new Person({
 												childLikes: [],
 												childParent1: null,
 												childParent2: null,
+												childpic1: null,
+                        						childpic2: null
 									},
 
 					pets: {				
@@ -563,12 +588,15 @@ var person6 = new Person({
 									}, // addresses end
 
 					details: {			
-										
+										howLongTogether: 3,
 										hasChildren: false,
 										numberOfChildren: 0,
 										militaryService: true,
 										militaryDetails: ["army", "PFC", "Iraq War 2003", "Gulf War", "Hospital Platoon"],
 										allowCoriCheck: true,
+										couplePic1: 'http://images4.fanpop.com/image/photos/16100000/O-Conell-and-Evey-movie-couples-16197664-1780-1167.jpg',
+                        				couplePic2: 'http://images.idiva.com/media/photogallery/2012/Jan/happy_couple.jpg',
+                        				couplePic3: 'http://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/articles/health_tools/infertility_treatments_slideshow/getty_rf_photo_of_couple_kayaking.jpg',
 										activities: ["bike", "jog"]
 							 },
 
@@ -578,6 +606,8 @@ var person6 = new Person({
 												childLikes: [],
 												childParent1: null,
 												childParent2: null,
+												childpic1: null,
+                        						childpic2: null
 									},
 
 					pets: {				
@@ -662,12 +692,15 @@ var person6 = new Person({
 									}, // addresses end
 
 					details: {			
-										
+										howLongTogether: 10,
 										hasChildren:false,
 										numberOfChildren: 0,
 										militaryService: false,
 										militaryDetails: [],
 										allowCoriCheck: false,
+										couplePic1: null,
+                        				couplePic2: null,
+                        				couplePic3: null,
 										activities: ["Hot Wheels", "Swimming", "Disney Channel", "Construction"]
 							 },
 
@@ -677,6 +710,8 @@ var person6 = new Person({
 												childLikes: ["Food", "Sledding", "Walking"],
 												childParent1: "Michael David Friedman",
 												childParent2: "Katherine Reardon Friedman",
+												childpic1: '/pics/zack.jpg',
+                        						childpic2: null
 									},
 
 					pets: {				
@@ -762,12 +797,15 @@ var person6 = new Person({
 
 					details: {			
 
-
+										howLongTogether: 5,
 										hasChildren:false,
 										numberOfChildren: 0,
 										militaryService: false,
 										militaryDetails: [],
 										allowCoriCheck: false,
+										couplePic1: null,
+                        				couplePic2: null,
+                        				couplePic3: null,
 										activities: ["Hot Wheels", "Swimming", "Disney Channel", "Construction"]
 							 },
 
@@ -777,6 +815,8 @@ var person6 = new Person({
 												childLikes: [],
 												childParent1: "Rich Bob Little",
 												childParent2: "Barbara Jane Smith",
+												childpic1: null,
+                        						childpic2: null
 									},
 
 					pets: {				
@@ -863,12 +903,15 @@ var person6 = new Person({
 
 					details: {			
 
-
+										howLongTogether: 5,
 										hasChildren:false,
 										numberOfChildren: 0,
 										militaryService: false,
 										militaryDetails: [],
 										allowCoriCheck: false,
+										couplePic1: null,
+                        				couplePic2: null,
+                        				couplePic3: null,
 										activities: ["Day Care", "Sucking Thumb"]
 							 },
 
@@ -878,6 +921,8 @@ var person6 = new Person({
 												childLikes: ["Color Blue", "Transformers", "Kickball", "Shiny Objects", "Running", "Screaming", "Swimming"],
 												childParent1: "Rich Bob Little",
 												childParent2: "Barbara Jane Smith",
+												childpic1: null,
+                        						childpic2: null
 									},
 
 					pets: {				

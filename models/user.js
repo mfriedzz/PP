@@ -13,24 +13,24 @@ var userSchema = mongoose.Schema({
   username:       {
                     type: String,
                     required: false,
-                    unique: false
+                    unique: false,
                   },
 
   email:          {
                     type: String,
                     required: true,
-                    unique: true
+                    unique: true,
                   },
 
   password:       {
                     type: String,
-                    required: false
+                    required: false,
                   },
 
 // Data Fields
 
   coupledWith:     {
-                    coupleId: Number
+                    coupleId: Number,
                   } ,     
       contact: {  
 
@@ -89,12 +89,15 @@ var userSchema = mongoose.Schema({
 
 
             details:   { 
-                        
+                        howLongTogether: Number,
                         hasChildren: Boolean,
                         numberOfChildren: Number,
                         militaryService: Boolean,
                         militaryDetails: [],
                         allowCoriCheck: Boolean,
+                        couplePic1: String,
+                        couplePic2: String,
+                        couplePic3: String,
                         activities: [],
                   },
 
@@ -104,6 +107,8 @@ var userSchema = mongoose.Schema({
                         childLikes: [],
                         childParent1: String,
                         childParent2: String,
+                        childpic1: String,
+                        childpic2: String,
                   },
 
             
@@ -116,8 +121,8 @@ var userSchema = mongoose.Schema({
                   },
 
           marriage:       {
-                    partner1Married: Boolean,
-                    partner1CivilUnion: Boolean,
+                    married: Boolean,
+                    civilUnion: Boolean,
                   }
 
           

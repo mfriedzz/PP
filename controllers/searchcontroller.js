@@ -158,7 +158,7 @@ var searchController = {
 			var viewid = req.params.id;
 			console.log("View ID from searchController view", viewid);
 			Person.findById(viewid, function(err, result){
-				
+				console.log("result from searchController viewCoupleDetails ", result);
 				res.render('compatiblecouplesearchresult', result);
 				// res.send(result);	
 				//res.redirect('/compatiblecouplesearchresult');	
