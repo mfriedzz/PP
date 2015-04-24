@@ -33,8 +33,8 @@ block content
             h2.profilestylestyle(style={color: 'black', background: 'green'}) Your Couple's Profile:
             h3.profilename(style={color: 'black', background: 'red'}) Logged In Couple's Name & Email:
             //- h5 {user.username}
-            h5(style={color: 'black', background: '#ADD8E6'}) #{user.username}
-            h5(style={color: 'black', background: '#ADD8E6'}) Katherine Friedman #{user}
+            h5(style={color: 'black', background: '#ADD8E6'}) Logged In User Name: #{user.username}
+            h5(style={color: 'black', background: '#ADD8E6'}) Full Name: #{user.contact.name.firstName + " " + user.contact.name.lastName}
             h5 #{user.contact.details.firstName} 
             h5(style={color: 'black', background: '#ADD8E6'}) E-mail: #{user.email}
             h3.profilestatistics(style={color: 'black', background: 'red'}) Profile Statistics:

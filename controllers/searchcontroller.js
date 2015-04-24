@@ -156,12 +156,28 @@ var searchController = {
 
 			
 			var viewid = req.params.id;
-			console.log("View ID from searchController view", viewid);
-			Person.findById(viewid, function(err, result){
-				console.log("result from searchController viewCoupleDetails ", result);
-				res.render('compatiblecouplesearchresult', result);
+			console.log("View ID from searchController view", typeof(viewid), typeof('coupledWith.coupleId'));
+			Person.find( { "coupledWith.coupleId" : viewid } , function(err, results){
+				if (err) {
+					throw err;
+				} else {
+				// var couplePerson1 = result;
+				// var couplePerson2 = find(   
+				// 			{
+				// 				"coupledWith.coupleId": result.coupledWith.coupleId
+						 	
+				// 			};
+
+				var tempjsonresults = JSON.stringify(results);
+						
+				console.log("result from searchController viewCoupleDetails ", results , typeof(results));
+				console.log("json stringify for results ", tempjsonresults);
+				// res.render('compatiblecouplesearchresult', {couple: (JSON.stringify(results))});
+				res.render('compatiblecouplesearchresult', {couple: tempjsonresults});
+				// console.log("controller couple ", {couple});
 				// res.send(result);	
 				//res.redirect('/compatiblecouplesearchresult');	
+			 } //end of else if
 			});
 			//  oldres.render('compatiblecouplesearchresult');
 

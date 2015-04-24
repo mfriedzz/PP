@@ -1,0 +1,19 @@
+
+var apple = ['the', 4, 5];
+var oranges = apple;
+
+var wood = "Hello";
+
+var hammer = wood;
+
+hammer = "the";
+
+oranges[1] = 3;
+
+
+var test = function(a,b){
+	
+	return a + b
+};
+
+console.log(test(2+3));

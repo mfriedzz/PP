@@ -68,6 +68,7 @@ $('#submitbutton').on('click', function(e){
 
          
          $(".couplesearchresults").empty();
+        $('.couplesearchresults').append("Couple ");
          
          var mappedResultspuredata = dataFromServer.results.map(function (result1)
                  { 
@@ -82,8 +83,8 @@ $('#submitbutton').on('click', function(e){
           //     + result.contact.name.firstName + result.contact.name.lastName  + '</a>' + "</li>");                       
            // $('.couplesearchresults').text("Couple: ");            
             $('.couplesearchresults').append("<li>" 
-            + "<a href='/compatiblecouplesearchdetails/" + result1._id + "'>" 
-              + result1.contact.name.firstName + result1.contact.name.lastName  + '</a>' + "</li>");
+            + "<a href='/compatiblecouplesearchdetails/" + result1.coupledWith.coupleId + "'>" 
+              + result1.contact.name.firstName  + " " + result1.contact.name.lastName  + '</a>' + "</li>");
 
              
                 
